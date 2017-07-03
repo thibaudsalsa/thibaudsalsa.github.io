@@ -50,7 +50,6 @@ class PaletteList extends Component {
           {this.state.active === 1
             ? <div className="Palette Active" onClick={() => this.toggleActive(1)}>
               <div style={{width: "4em", height: "4em", background: '#4b85ea'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#1fa8e2'}}></div>
               <div style={{width: "4em", height: "4em", background: '#d3d3d3'}}></div>
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(1)}>
@@ -67,7 +66,6 @@ class PaletteList extends Component {
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(2)}>
               <div style={{width: "4em", height: "4em", background: '#a30000'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#ff7700'}}></div>
               <div style={{width: "4em", height: "4em", background: '#c9c9c9'}}></div>
             </div>
           }
@@ -79,7 +77,6 @@ class PaletteList extends Component {
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(3)}>
               <div style={{width: "4em", height: "4em", background: '#08a045'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#6bbf59'}}></div>
               <div style={{width: "4em", height: "4em", background: '#b5d99c'}}></div>
             </div>
           }
