@@ -37,7 +37,7 @@ class SizeList extends Component {
 
   render() {
     let array = []
-    for (let i = 12; i<=50; i++) {
+      for (let i = 12; i<=50; i++) {
       array.push(i)
     }
     return (

@@ -60,7 +60,7 @@ class Document extends Component {
     let context = this
     this.synth = window.speechSynthesis
 
-    Mousetrap.bind('right', () => {
+    Mousetrap.bind('down', () => {
       if(context.state.selected+1 > 0){
         context.setState({selected: context.state.selected + 1})
       }
@@ -74,8 +74,7 @@ class Document extends Component {
       context.speak()
     })
 
-    Mousetrap.bind('down', () => {
-      console.log("down")
+    Mousetrap.bind('right', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       //On cherche la balise equivalente ou au dessus en priorite
