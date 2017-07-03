@@ -27,7 +27,7 @@ class MenuTop extends Component {
   }
 
   zoomIn() {
-    document.body.style.zoom = (this.state.actualZoom +10 ).toString() + "%"
+    document.body.style.zoom = (this.state.actualZoom + 10 ).toString() + "%"
     this.setState({actualZoom: this.state.actualZoom + 10})
   }
 

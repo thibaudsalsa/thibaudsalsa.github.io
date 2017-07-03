@@ -24,12 +24,12 @@ class SizeList extends Component {
    
     paragraphs = document.getElementsByTagName("h1");　　　　
        for (let i = 0; i < paragraphs.length; i++) {　　　　
-       paragraphs[i].style.fontSize = (parseInt(e.target.value, 10)+15) + "px";　　　　
+       paragraphs[i].style.fontSize = (parseInt(e.target.value, 10)+25) + "px";　　　　
     }
 
     paragraphs = document.getElementsByTagName("h2");　　　　
       for (let i = 0; i < paragraphs.length; i++) {　　　　
-      paragraphs[i].style.fontSize = (parseInt(e.target.value, 10)+12) + "px";　　　　
+      paragraphs[i].style.fontSize = (parseInt(e.target.value, 10)+22) + "px";　　　　
    }
 
   paragraphs = document.getElementsByTagName("h3");　　　　

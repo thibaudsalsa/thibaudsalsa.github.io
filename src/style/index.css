@@ -67,7 +67,8 @@
   padding: 1em; }
 
 .Document #selected {
-  color: #4b85ea; }
+    font-size: 40px;
+    color: #ff0000; }
 
 .Arrows img {
   width: 4em;

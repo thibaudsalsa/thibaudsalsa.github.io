@@ -16,11 +16,6 @@ class FontList extends Component {
         this.setState({selected: 'sans-serif'})
       }
   }
-  // componentDidUpdate(){
-  //   if(this.props.disease == 'Dyslexique') {
-  //     this.setState({selected: 'sans-serif'})
-  //   }
-  // }
 
   changeFont(e) {
     this.setState({selected: e.target.value})
