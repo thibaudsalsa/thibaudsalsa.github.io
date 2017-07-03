@@ -17,11 +17,31 @@ class SizeList extends Component {
   }
 
   changeSize(e){
-    let paragraphs = document.getElementsByTagName("p", "ol", "ul", "li", "td", "a");　　　　
+      let paragraphs = document.getElementsByTagName("li");　　　
       for (let i = 0; i < paragraphs.length; i++) {　　　　
-      paragraphs[i].style.fontSize = e.target.value + "px";　　　　
+      paragraphs[i].style.fontSize = e.target.value + "px";
    }
-   
+
+    paragraphs = document.getElementsByTagName("p");　　　　
+       for (let i = 0; i < paragraphs.length; i++) {　　　　
+       paragraphs[i].style.fontSize =  e.target.value + "px";
+						   }
+
+          paragraphs = document.getElementsByTagName("ol");　　　　
+       for (let i = 0; i < paragraphs.length; i++) {　　　　
+       paragraphs[i].style.fontSize =  e.target.value + "px";
+    }
+
+    paragraphs = document.getElementsByTagName("td");　　　　
+       for (let i = 0; i < paragraphs.length; i++) {　　　　
+       paragraphs[i].style.fontSize =  e.target.value + "px";
+    }
+
+    paragraphs = document.getElementsByTagName("a");　　　　
+       for (let i = 0; i < paragraphs.length; i++) {　　　　
+       paragraphs[i].style.fontSize =  e.target.value + "px";
+    }
+ 
     paragraphs = document.getElementsByTagName("h1");　　　　
        for (let i = 0; i < paragraphs.length; i++) {　　　　
        paragraphs[i].style.fontSize = (parseInt(e.target.value, 10)+25) + "px";　　　　
