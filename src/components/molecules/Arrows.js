@@ -20,13 +20,11 @@ class Arrows extends Component {
   render() {
     return (
       <div className="Arrows">
-        <img src={up} alt="Aller au titre précédent" />
-        <div className="DownArrows">
-          <img src={left} alt="Aller au titre suivant" />
-          <img src={down} alt="Aller au titre suivant" />
-          <img src={right} alt="Aller sous-titre suivant" />
-        </div>
-        <p>Se déplacer</p>
+           <p><img src={up} alt="Aller au titre précédent" />Monter</p>
+            <p><img src={down} alt="Aller au titre suivant" />sous titre</p>
+            <p><img src={left} alt="Aller au titre suivant" />sur titre</p>
+            <p><img src={right} alt="Aller sous-titre suivant" />Descendre</p>
+        <p>Se déplacer Se déplacer Se déplacer</p>
       </div>
     );
   }

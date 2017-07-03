@@ -66,7 +66,7 @@ class Document extends Component {
       }
     })
     Mousetrap.bind('up', () => {
-      if(context.state.selected-1 > 0){
+      if(context.state.selected-1 >= 0){
         context.setState({selected: context.state.selected - 1})
       }
     })
