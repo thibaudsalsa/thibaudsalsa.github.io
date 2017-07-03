@@ -22,20 +22,17 @@ class PaletteList extends Component {
         document.getElementById("MenuTop").style.background = '#4b85ea'
         document.getElementById("MenuLeft").style.background = '#D3D3D3'
         document.getElementById("MenuRight").style.background = '#D3D3D3'
-        document.getElementById("selected").style.color = '#1fa8e2'
         break;
       case 2:
         document.getElementById("MenuTop").style.background = '#ff7700'
         document.getElementById("MenuRight").style.background = '#C9C9C9'
         document.getElementById("MenuLeft").style.background = '#C9C9C9'
-        document.getElementById("selected").style.color = '#a30000'
 
         break;
       case 3:
         document.getElementById("MenuTop").style.background = '#6BBF59'
         document.getElementById("MenuRight").style.background = '#B5D99C'
         document.getElementById("MenuLeft").style.background = '#B5D99C'
-        document.getElementById("selected").style.color = '#08a045'
 
         break;
     }
