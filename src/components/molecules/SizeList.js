@@ -80,7 +80,8 @@ class SizeList extends Component {
     }
     return (
       <div className="SizeList">
-        <p>Taille</p>
+            Taille
+	<div></div>
         <select name="sizes" onChange={(e) => this.changeSize(e)}>
         {array.map((i, key) => {
           return <option key={key} value={i}>{i}</option>

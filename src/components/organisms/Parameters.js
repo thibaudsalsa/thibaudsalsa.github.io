@@ -27,7 +27,7 @@ class Parameters extends Component {
   render() {
     return (
       <div className="Parameters">
-        <h1> Préférences </h1>
+         Préférences
         <DisabilityList onChange={this.onChange} />
         <div className="Online">
           <SizeList disease={this.state.disease}/>

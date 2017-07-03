@@ -45,7 +45,7 @@ class PaletteList extends Component {
   render() {
     return (
       <div className="PaletteTop">
-        <p>Choisir sa palette</p>
+        Choisir sa palette
         <div className="PaletteList">
           {this.state.active === 1
             ? <div className="Palette Active" onClick={() => this.toggleActive(1)}>
@@ -63,7 +63,7 @@ class PaletteList extends Component {
             ? <div className="Palette Active" onClick={() => this.toggleActive(2)}>
               <div style={{width: "4em", height: "4em", background: '#a30000'}}></div>
               <div style={{width: "4em", height: "4em", background: '#ff7700'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#c9c9c9'}}></div>
+           <div style={{width: "4em", height: "4em", background: '#c9c9c9'}}></div>
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(2)}>
               <div style={{width: "4em", height: "4em", background: '#a30000'}}></div>

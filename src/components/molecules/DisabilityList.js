@@ -23,7 +23,9 @@ class DisabilityList extends Component {
   render() {
     return (
       <div className="DisabilityList">
-        <p>Accomodations prédéfinies</p>
+            Accomodations prédéfinies
+	    <div>
+	    </div>
         <select name="disabilities" onChange={(e) => this.props.onChange(e)}>
         {this.state.list.map((disability, key) => {
         return key === this.state.selected

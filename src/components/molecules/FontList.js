@@ -29,7 +29,8 @@ class FontList extends Component {
     let array = ["Times New Roman", "Roboto","Arial","monospace" ,"sans-serif" ,"serif"]
     return (
       <div className="FontList">
-      <p>Police</p>
+	    Police
+	<div></div>
         <select style={{fontFamily: this.state.selected}} name="fonts" onChange={(e) => this.changeFont(e)}>
         {array.map((font, key) => {
           return this.state.selected == font

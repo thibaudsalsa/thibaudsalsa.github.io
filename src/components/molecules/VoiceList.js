@@ -42,7 +42,8 @@ class SizeList extends Component {
     }
     return (
       <div className="Voice">
-        <p>Voix</p>
+            Voix
+	<div></div>
         <select id="voiceSelect"
           ref={(select) => { this.voiceSelect = select; }}
           onChange={(e) => this.props.setSelectedVoice(e)}

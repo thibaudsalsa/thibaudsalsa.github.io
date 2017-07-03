@@ -20,14 +20,14 @@ class MenuLeft extends Component {
       let element = this.props.TOC[key]
       finalHtml += "<"+element.type+">"+element.text+"</"+element.type+">"
     }
-    console.log(finalHtml)
+    //console.log(finalHtml)
     return finalHtml
   }
 
   render() {
     return (
-      <div id="MenuLeft">
-        { ReactHtmlParser(this.generateTOC()) }
+	    <div id="MenuLeft">
+            { ReactHtmlParser(this.generateTOC()) }
       </div>
     );
   }
