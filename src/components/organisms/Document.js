@@ -70,7 +70,7 @@ class Document extends Component {
         context.setState({selected: context.state.selected - 1})
       }
     })
-    Mousetrap.bind('a', () => {
+    Mousetrap.bind(' ', () => {
       context.speak()
     })
 
