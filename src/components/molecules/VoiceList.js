@@ -19,7 +19,7 @@ class SizeList extends Component {
     voices = synth.getVoices()
     var selectedIndex = voiceSelect.selectedIndex < 0 ? 0 : voiceSelect.selectedIndex
     voiceSelect.innerHTML = ''
-      for(let i = 0; i < /*voices.length*/1 ; i++) {
+      for(let i = 0; i < voices.length ; i++) {
       var option = document.createElement('option')
       option.textContent = voices[i].name + ' (' + voices[i].lang + ')'
 

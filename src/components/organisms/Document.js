@@ -45,7 +45,7 @@ class Document extends Component {
 
     utterThis.voice = this.getSelectedVoice()
     utterThis.pitch = 1
-    utterThis.rate = 1
+    utterThis.rate = 0.5
     this.synth.speak(utterThis)
 
     utterThis.onpause = function(event) {
