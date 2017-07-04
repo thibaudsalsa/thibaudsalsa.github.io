@@ -8,7 +8,7 @@ import ReactHtmlParser from 'react-html-parser';
 class Document extends Component {
   constructor(props){
     super(props);
-    this.typeSelected = ""
+      this.typeSelected = ""
     this.initElements()
     this.maxElements = 0
     this.selectedText = ""
@@ -16,7 +16,7 @@ class Document extends Component {
     this.state = {
       loading: true,
       json: jsonPage,
-      selected: 0,
+	selected: 0,
       typeSelected: "",
       htmlRender: ""
     }
@@ -58,24 +58,46 @@ class Document extends Component {
 
   componentDidMount(){
     //Set all the key listenners
-    let context = this
+      let context = this
     this.synth = window.speechSynthesis
 
-    Mousetrap.bind('down', () => {
-      if(context.state.selected+1 < context.maxElements){
-        context.setState({selected: context.state.selected + 1})
-      }
+          Mousetrap.bind('left', () => {
+      let currentSelected = context.maxElements
+      let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
+        let found = false
+	    for(let j=0;(j<5)&&(found===false);j++){
+		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+		    if(context.elements[priorityOrder[j]][k] === context.state.selected - 1){
+			found = true
+		    }
+		}
+	    }
+	if(found===false){
+	    this.setState({selected: context.state.selected - 1})
+	}
     })
-    Mousetrap.bind('up', () => {
-      if(context.state.selected-1 >= 0){
-        context.setState({selected: context.state.selected - 1})
-      }
+
+    Mousetrap.bind('right', () => {
+      let currentSelected = context.maxElements
+      let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
+        let found = false
+	    for(let j=0;(j<5)&&(found===false);j++){
+		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+		    if(context.elements[priorityOrder[j]][k] === context.state.selected + 1){
+			found = true
+		    }
+		}
+	    }
+	if(found===false){
+	    this.setState({selected: context.state.selected + 1})
+	}
     })
+
     Mousetrap.bind('space', () => {
       context.speak()
     })
 
-    Mousetrap.bind('right', () => {
+    Mousetrap.bind('down', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       let currentElement = -1
@@ -95,7 +117,7 @@ class Document extends Component {
 	}
     })
 
-      Mousetrap.bind('left', () => {
+      Mousetrap.bind('up', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       let currentElement = -1
