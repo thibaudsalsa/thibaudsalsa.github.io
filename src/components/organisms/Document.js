@@ -22,7 +22,7 @@ class Document extends Component {
     }
   }
 
-  getSelectedText(){
+    getSelectedText(){
     return this.selectedText
   }
 
@@ -73,7 +73,6 @@ class Document extends Component {
     Mousetrap.bind('space', () => {
       context.speak()
     })
-
     Mousetrap.bind('right', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
@@ -87,8 +86,8 @@ class Document extends Component {
           let currentElement = context.elements[priorityOrder[i]][j]
           if(currentElement > context.state.selected && found === false){
             found = true
-            if(currentSelected > currentElement){
-              currentSelected = currentElement
+              if(currentSelected > currentElement){
+                      currentSelected = currentElement
             }
           }
         }
@@ -163,7 +162,7 @@ class Document extends Component {
           context.props.pushToTOC({type: cursorTag, text: text})
         }
         if(i > 0){
-          finalHtml += text
+            finalHtml += text
           if(context.state.selected === i-1 && text.match(/^\s+$/) === null){
             context.selectedText = text
           }

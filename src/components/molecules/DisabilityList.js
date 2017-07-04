@@ -5,7 +5,7 @@ class DisabilityList extends Component {
     super(props);
     this.state = {
       loading: true,
-      list: ['Basique', 'Bichromate sans bleu','Bichromate sans rouge',
+	list: ['Basique', 'Bichromate sans bleu','Bichromate sans rouge',
       'Bichromate sans vert','Monochromate avec bleu','Monochromate avec vert',
       'Monochromate avec rouge','Non voyant','Dyslexique'],
       selected: 0,

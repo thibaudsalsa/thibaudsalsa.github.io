@@ -68,6 +68,7 @@
 
 .Document #selected {
     font-size: 40px;
+    background-color: #c0c0c0;
     color: #ff0000; }
 
 .Arrows img {
