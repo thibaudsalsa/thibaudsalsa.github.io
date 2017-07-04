@@ -22,8 +22,8 @@ class Arrows extends Component {
     return (
 	    <div className="Arrows">
 	     <img src={space} alt="Lancer la lecture audio" />Lecture audio
-            <img src={up} alt="Aller au titre précédent" />Titre suivant
-            <img src={down} alt="Aller au titre suivant" />Titre précédent
+            <img src={up} alt="Aller au titre précédent" />Titre précédent
+            <img src={down} alt="Aller au titre suivant" />Titre suivant
             <img src={left} alt="Aller au titre suivant" />Monter dans le titre
             <img src={right} alt="Aller sous-titre suivant" />Descendre dans le titre
       </div>
