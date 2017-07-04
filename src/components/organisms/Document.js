@@ -22,7 +22,7 @@ class Document extends Component {
     }
   }
 
-    getSelectedText(){
+  getSelectedText(){
     return this.selectedText
   }
 
@@ -61,7 +61,7 @@ class Document extends Component {
     this.synth = window.speechSynthesis
 
     Mousetrap.bind('down', () => {
-      if(context.state.selected+1 > 0){
+      if(context.state.selected+1 < context.maxElements){
         context.setState({selected: context.state.selected + 1})
       }
     })
@@ -73,42 +73,42 @@ class Document extends Component {
     Mousetrap.bind('space', () => {
       context.speak()
     })
+
     Mousetrap.bind('right', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
-      //On cherche la balise equivalente ou au dessus en priorite
-      //On parcours les balises avec un plus grande priorite
-      for(let i=priorityOrder.indexOf(context.typeSelected); i > 0 ;i--){
-        //On parcours les elements de la liste pour trouver le prochain
+      let currentElement = -1
         let found = false
-        for(let j=0;j<context.elements[priorityOrder[i]].length;j++){
-          //On compare si il est plus proche que la balise trouvee precedement
-          let currentElement = context.elements[priorityOrder[i]][j]
-          if(currentElement > context.state.selected && found === false){
-            found = true
-              if(currentSelected > currentElement){
-                      currentSelected = currentElement
-            }
-          }
-        }
-      }
-      if(currentSelected < context.maxElements){
-        this.setState({selected: currentSelected})
-      }
+	for(let i=1; (context.state.selected + i < currentSelected-1)&&(found===false);i++){
+	    for(let j=0;(j<5)&&(found===false);j++){
+		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+		    console.log(context.elements[priorityOrder[j]].length)
+		    if(context.elements[priorityOrder[j]][k] === context.state.selected + i){
+			currentElement = context.state.selected + i;
+			found = true
+		    }
+		}
+	    }
+	}
+	if(found===true){
+	    this.setState({selected: currentElement})
+	}
     })
 
     Mousetrap.bind('left', () => {
       let currentSelected = 0
-      let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
+	let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
+	console.log('nope')
       //On cherche la balise equivalente ou au dessus en priorite
       //On parcours les balises avec un plus grande priorite
-      for(let i=priorityOrder.indexOf(context.typeSelected)-1; i > 0 ;i--){
+	for(let i=priorityOrder.indexOf(context.typeSelected)-1; i > 0 ;i--){
         //On parcours les elements de la liste pour trouver le prochain
         let found = false
         for(let j=this.elements[priorityOrder[i]].length-1;j >= 0;j--){
-          //On compare si il est plus proche que la balise trouvee precedement
+            //On compare si il est plus proche que la balise trouvee precedement
+	    console.log(j)
           let currentElement = context.elements[priorityOrder[i]][j]
-          if(currentElement < context.state.selected && found === false){
+            if(currentElement < context.state.selected && found === false){
             found = true
             if(currentSelected < currentElement){
               currentSelected = currentElement
@@ -162,7 +162,7 @@ class Document extends Component {
           context.props.pushToTOC({type: cursorTag, text: text})
         }
         if(i > 0){
-            finalHtml += text
+          finalHtml += text
           if(context.state.selected === i-1 && text.match(/^\s+$/) === null){
             context.selectedText = text
           }
