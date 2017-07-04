@@ -19,7 +19,7 @@ class PaletteList extends Component {
     console.log(this.state.active)
     switch(this.state.active) {
       case 1:
-        document.getElementById("MenuTop").style.background = '#4b85ea'
+        document.getElementById("MenuTop").style.background = '#1fa8e2'
         document.getElementById("MenuLeft").style.background = '#D3D3D3'
         document.getElementById("MenuRight").style.background = '#D3D3D3'
         break;
@@ -49,7 +49,7 @@ class PaletteList extends Component {
         <div className="PaletteList">
           {this.state.active === 1
             ? <div className="Palette Active" onClick={() => this.toggleActive(1)}>
-              <div style={{width: "4em", height: "4em", background: '#4b85ea'}}></div>
+              <div style={{width: "4em", height: "4em", background: '#1fa8e2'}}></div>
               <div style={{width: "4em", height: "4em", background: '#d3d3d3'}}></div>
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(1)}>

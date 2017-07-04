@@ -27,7 +27,7 @@ class SizeList extends Component {
         option.textContent += ' -- DEFAULT'
       }
 
-      option.setAttribute('data-lang', voices[i].lang)
+	  option.setAttribute('data-lang', voices[i].lang)
       option.setAttribute('data-name', voices[i].name)
       option.setAttribute('value', voices[i].name)
       voiceSelect.appendChild(option);

@@ -40,6 +40,7 @@ class Document extends Component {
     return result;
   }
 
+
   speak(){
     var utterThis = new SpeechSynthesisUtterance(this.selectedText);
 
@@ -94,7 +95,7 @@ class Document extends Component {
 	}
     })
 
-    Mousetrap.bind('left', () => {
+      Mousetrap.bind('left', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       let currentElement = -1
