@@ -82,7 +82,6 @@ class Document extends Component {
 	for(let i=1; (context.state.selected + i < currentSelected-1)&&(found===false);i++){
 	    for(let j=0;(j<5)&&(found===false);j++){
 		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
-		    console.log(context.elements[priorityOrder[j]].length)
 		    if(context.elements[priorityOrder[j]][k] === context.state.selected + i){
 			currentElement = context.state.selected + i;
 			found = true
@@ -96,27 +95,23 @@ class Document extends Component {
     })
 
     Mousetrap.bind('left', () => {
-      let currentSelected = 0
-	let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
-	console.log('nope')
-      //On cherche la balise equivalente ou au dessus en priorite
-      //On parcours les balises avec un plus grande priorite
-	for(let i=priorityOrder.indexOf(context.typeSelected)-1; i > 0 ;i--){
-        //On parcours les elements de la liste pour trouver le prochain
+      let currentSelected = context.maxElements
+      let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
+      let currentElement = -1
         let found = false
-        for(let j=this.elements[priorityOrder[i]].length-1;j >= 0;j--){
-            //On compare si il est plus proche que la balise trouvee precedement
-	    console.log(j)
-          let currentElement = context.elements[priorityOrder[i]][j]
-            if(currentElement < context.state.selected && found === false){
-            found = true
-            if(currentSelected < currentElement){
-              currentSelected = currentElement
-            }
-          }
-        }
-      }
-      this.setState({selected: currentSelected})
+	for(let i=1; (context.state.selected - i >= 0)&&(found===false);i++){
+	    for(let j=0;(j<5)&&(found===false);j++){
+		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+		    if(context.elements[priorityOrder[j]][k] === context.state.selected - i){
+			currentElement = context.state.selected - i;
+			found = true
+		    }
+		}
+	    }
+	}
+	if(found===true){
+	    this.setState({selected: currentElement})
+	}
     })
   }
 

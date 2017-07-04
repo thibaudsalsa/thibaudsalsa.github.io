@@ -41,7 +41,7 @@ class MenuTop extends Component {
       <div id="MenuTop">
         <img onClick={this.props.showParameters} src={settings} alt="Paramètres (touche échape)"/>
         {this.state.voice
-          ? <img onClick={this.toggleVoice} src={play} alt="Lancer la voie de synthèse (touche espace)"/>
+         ? <img onClick={this.toggleVoice} src={play} alt="Lancer la voie de synthèse (touche espace)"/>
           : <img onClick={this.toggleVoice} src={stop} alt="Arrêter la voie de synthèse (touche espace)"/>
         }
         <div className="Zoom">
