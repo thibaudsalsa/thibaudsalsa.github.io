@@ -23,7 +23,7 @@ class MenuTop extends Component {
   }
 
     toggleVoice() {
-    //this.setState({ voice: !this.state.voice})
+    this.setState({ voice: !this.state.voice})
   }
 
   zoomIn() {
