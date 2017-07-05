@@ -92,10 +92,7 @@ class Document extends Component {
     })
 
       Mousetrap.bind('space', () => {
-	  if (this.state.voice === false)
-	  {
 	      context.speak()
-	  }
     })
 
     Mousetrap.bind('down', () => {
