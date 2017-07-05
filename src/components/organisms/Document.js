@@ -92,7 +92,8 @@ class Document extends Component {
     })
 
     Mousetrap.bind('space', () => {
-      context.speak()
+	context.speak()
+	 this.setState({ voice: !this.state.voice})
     })
 
     Mousetrap.bind('down', () => {
