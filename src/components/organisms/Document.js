@@ -67,9 +67,6 @@ class Document extends Component {
         let found = false
             for(let j=0;(j<5)&&(found===false);j++){
                 for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
-                    if(context.elements[priorityOrder[j]][k] === context.state.selected - 1){
-                        found = true
-                    }
                                     if(context.elements[priorityOrder[j]][k] === context.state.selected){
                         found = true
                     }
