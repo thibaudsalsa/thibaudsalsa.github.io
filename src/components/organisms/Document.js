@@ -10,6 +10,7 @@ class Document extends Component {
     super(props);
     this.typeSelected = ""
     this.initElements()
+    this.voice = true
     this.maxElements = 0
     this.selectedText = ""
     this.synth = ""
@@ -92,7 +93,11 @@ class Document extends Component {
     })
 
       Mousetrap.bind('space', () => {
+	  if (this.voice === true)
+	  {
 	      context.speak()
+	      this.voice != this.voice
+	  }
     })
 
     Mousetrap.bind('down', () => {
