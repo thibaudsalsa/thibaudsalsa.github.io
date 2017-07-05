@@ -91,8 +91,10 @@ class Document extends Component {
         }
     })
 
-    Mousetrap.bind('space', () => {
-	context.speak()
+      Mousetrap.bind('space', () => {
+	  if (this.toggleVoice == true){
+	      context.speak()
+	  }
 	this.toggleVoice
     })
 
