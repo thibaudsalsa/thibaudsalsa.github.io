@@ -81,7 +81,7 @@ class Document extends Component {
         let found = false
             for(let j=0;(j<5)&&(found===false);j++){
                 for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
-                    if(context.elements[priorityOrder[j]][k] === context.state.selected + 1){
+                    if(context.elements[priorityOrder[j]][k] === context.state.selected + 1 || context.state.selected >= context.maxElements - 1){
                         found = true
                     }
                 }
@@ -170,7 +170,7 @@ class Document extends Component {
             finalHtml += ">"
 	    let found = false
 	    nb_link += 1
-	    console.log(nb_link)
+//	    console.log(nb_link)
 	    for(let j=0;(j<5)&&(found===false);j++){
 		for(let k=0;(k<context.elements[title[j]].length)&&(found===false);k++){
 		    if(context.elements[title[j]][k] === context.state.selected){
