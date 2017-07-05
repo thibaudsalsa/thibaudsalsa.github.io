@@ -8,7 +8,7 @@ import ReactHtmlParser from 'react-html-parser';
 class Document extends Component {
   constructor(props){
     super(props);
-      this.typeSelected = ""
+    this.typeSelected = ""
     this.initElements()
     this.maxElements = 0
     this.selectedText = ""
@@ -16,7 +16,7 @@ class Document extends Component {
     this.state = {
       loading: true,
       json: jsonPage,
-	selected: 0,
+      selected: 0,
       typeSelected: "",
       htmlRender: ""
     }
@@ -58,42 +58,42 @@ class Document extends Component {
 
   componentDidMount(){
     //Set all the key listenners
-      let context = this
+    let context = this
     this.synth = window.speechSynthesis
 
-          Mousetrap.bind('left', () => {
+    Mousetrap.bind('left', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
         let found = false
-	    for(let j=0;(j<5)&&(found===false);j++){
-		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
-		    if(context.elements[priorityOrder[j]][k] === context.state.selected - 1){
-			found = true
-		    }
-		    		    if(context.elements[priorityOrder[j]][k] === context.state.selected){
-			found = true
-		    }
-		}
-	    }
-	if(found===false){
-	    this.setState({selected: context.state.selected - 1})
-	}
+            for(let j=0;(j<5)&&(found===false);j++){
+                for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+                    if(context.elements[priorityOrder[j]][k] === context.state.selected - 1){
+                        found = true
+                    }
+                                    if(context.elements[priorityOrder[j]][k] === context.state.selected){
+                        found = true
+                    }
+                }
+            }
+        if(found===false){
+            this.setState({selected: context.state.selected - 1})
+        }
     })
 
     Mousetrap.bind('right', () => {
       let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
         let found = false
-	    for(let j=0;(j<5)&&(found===false);j++){
-		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
-		    if(context.elements[priorityOrder[j]][k] === context.state.selected + 1){
-			found = true
-		    }
-		}
-	    }
-	if(found===false){
-	    this.setState({selected: context.state.selected + 1})
-	}
+            for(let j=0;(j<5)&&(found===false);j++){
+                for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+                    if(context.elements[priorityOrder[j]][k] === context.state.selected + 1){
+                        found = true
+                    }
+                }
+            }
+        if(found===false){
+            this.setState({selected: context.state.selected + 1})
+        }
     })
 
     Mousetrap.bind('space', () => {
@@ -105,19 +105,19 @@ class Document extends Component {
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       let currentElement = -1
         let found = false
-	for(let i=1; (context.state.selected + i < currentSelected-1)&&(found===false);i++){
-	    for(let j=0;(j<5)&&(found===false);j++){
-		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
-		    if(context.elements[priorityOrder[j]][k] === context.state.selected + i){
-			currentElement = context.state.selected + i;
-			found = true
-		    }
-		}
-	    }
-	}
-	if(found===true){
-	    this.setState({selected: currentElement})
-	}
+        for(let i=1; (context.state.selected + i < currentSelected-1)&&(found===false);i++){
+            for(let j=0;(j<5)&&(found===false);j++){
+                for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+                    if(context.elements[priorityOrder[j]][k] === context.state.selected + i){
+                        currentElement = context.state.selected + i;
+                        found = true
+                    }
+                }
+            }
+        }
+        if(found===true){
+            this.setState({selected: currentElement})
+        }
     })
 
       Mousetrap.bind('up', () => {
@@ -125,19 +125,19 @@ class Document extends Component {
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       let currentElement = -1
         let found = false
-	for(let i=1; (context.state.selected - i >= 0)&&(found===false);i++){
-	    for(let j=0;(j<5)&&(found===false);j++){
-		for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
-		    if(context.elements[priorityOrder[j]][k] === context.state.selected - i){
+        for(let i=1; (context.state.selected - i >= 0)&&(found===false);i++){
+            for(let j=0;(j<5)&&(found===false);j++){
+                for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
+                    if(context.elements[priorityOrder[j]][k] === context.state.selected - i){
 			currentElement = context.state.selected - i;
-			found = true
-		    }
-		}
-	    }
-	}
-	if(found===true){
-	    this.setState({selected: currentElement})
-	}
+                        found = true
+                    }
+	        }
+            }
+        }
+        if(found===true){
+            this.setState({selected: currentElement})
+        }
     })
   }
 
@@ -159,28 +159,42 @@ class Document extends Component {
     let finalHtml
     let i = 0
     this.initElements()
-
+    let title = ["h1", "h2", "h3", "h4", "h5"]
+    let nb_link = 0
     let cursorTag
     let context = this
     //Generate the page HTML, and store the cursor as well as the current selected text
     var parser = new htmlparser.Parser({
       onopentag: function(name, attribs){
-        cursorTag = name
+          cursorTag = name
         if(name in context.elements && name !== "ul" && name !== "ol"){
           context.elements[name].push(i)
-
           finalHtml += "<"+name
           if(context.state.selected === i && name !== "ul" && name !== "ol" ){
             finalHtml += " id='selected'"
             context.typeSelected = name
           }
-          finalHtml += ">"
+            finalHtml += ">"
+	    let found = false
+	    nb_link += 1
+	    console.log(nb_link)
+	    for(let j=0;(j<5)&&(found===false);j++){
+		for(let k=0;(k<context.elements[title[j]].length)&&(found===false);k++){
+		    if(context.elements[title[j]][k] === context.state.selected){
+			finalHtml += "<div id='section_"+nb_link+"'>"
+			found = true
+		    }
+		}
+	    }
+	    if(found===false){
+		finalHtml += "<div id='temp'>"
+	    }
           i++
         }
       },
       ontext: function(text){
-        if(["h1", "h2", "h3", "h4", "h5"].indexOf(cursorTag) > -1){
-          context.props.pushToTOC({type: cursorTag, text: text})
+          if(["h1", "h2", "h3", "h4", "h5"].indexOf(cursorTag) > -1){
+              context.props.pushToTOC({type: cursorTag, text: text})
         }
         if(i > 0){
           finalHtml += text
@@ -190,7 +204,7 @@ class Document extends Component {
         }
       },
       onclosetag: function(name){
-          finalHtml += "</"+name+">"
+          finalHtml += "</div></"+name+">"
       }
   }, {decodeEntities: true});
   parser.write(htmlTemplate);
@@ -199,6 +213,54 @@ class Document extends Component {
   finalHtml = finalHtml.replace("undefined", "");
 
   this.maxElements = i
+	    // (function() // Code in a function to create an isolate scope
+	    //  {
+	    // 	 var speed = 300;
+	    // 	 var moving_frequency = 15; // Affects performance !
+	    // 	 var links = document.querySelectorAll("nav a"); // Active links
+	    // 	 var href;
+	    // 	 for(var i=0; i<links.length; i++)
+	    // 	 {
+	    // 	     href = (links[i].attributes.href === undefined) ? null : links[i].attributes.href.nodeValue.toString();
+	    // 	     if(href !== null && href.length > 1 && href.substr(0, 1) == '#')
+	    // 	     {
+	    // 		 links[i].onclick = function()
+	    // 		 {
+	    // 		     var element;
+	    // 		     var href = this.attributes.href.nodeValue.toString();
+	    // 		     if(element = document.getElementById(href.substr(1)))
+	    // 		     {
+	    // 			 var hop_count = speed/moving_frequency
+	    // 			 var getScrollTopDocumentAtBegin = getScrollTopDocument();
+	    // 			 var gap = (getScrollTopElement(element) - getScrollTopDocumentAtBegin) / hop_count;
+	    // 			 for(var j = 1; j <= hop_count; j++)
+	    // 			 {
+	    // 			     (function()
+	    // 			      {
+	    // 				  var hop_top_position = gap*j;
+	    // 				  setTimeout(function(){  window.scrollTo(0, hop_top_position + getScrollTopDocumentAtBegin); }, moving_frequency*j);
+	    // 			      })();
+	    // 			 }
+	    // 		     }
+	    // 		     return false;
+	    // 		 };
+	    // 	     }
+	    // 	 }
+	    // 	 var getScrollTopElement =  function (e)
+	    // 	 {
+	    // 	     var top = 0;
+	    // 	     while (e.offsetParent != undefined && e.offsetParent != null)
+	    // 	     {
+	    // 		 top += e.offsetTop + (e.clientTop != null ? e.clientTop : 0);
+	    // 		 e = e.offsetParent;
+	    // 	     }
+	    // 	     return top;
+	    // 	 };
+	    // 	 var getScrollTopDocument = function()
+	    // 	 {
+	    // 	     return document.documentElement.scrollTop + document.body.scrollTop;
+	    // 	 };
+	    //  })();
 
     return <div className="Document">{ ReactHtmlParser(finalHtml) }</div>;
   }

@@ -16,9 +16,11 @@ class MenuLeft extends Component {
 
   generateTOC(){
     let finalHtml = ""
-    for(let key in this.props.TOC){
-      let element = this.props.TOC[key]
-      finalHtml += "<"+element.type+">"+element.text+"</"+element.type+">"
+      let nb_link = 1
+      for(let key in this.props.TOC){
+	  let element = this.props.TOC[key]
+	  finalHtml += "<"+element.type+"><a href=\"#section_"+nb_link+"\">"+element.text+"</a></"+element.type+">"
+	  nb_link += 1
     }
     //console.log(finalHtml)
     return finalHtml
