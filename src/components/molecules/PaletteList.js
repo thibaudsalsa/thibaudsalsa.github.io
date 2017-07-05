@@ -18,7 +18,7 @@ class PaletteList extends Component {
   componentDidUpdate(){
     console.log(this.state.active)
     switch(this.state.active) {
-      case 1:
+    default:
         document.getElementById("MenuTop").style.background = '#1fa8e2'
         document.getElementById("MenuLeft").style.background = '#D3D3D3'
         document.getElementById("MenuRight").style.background = '#D3D3D3'

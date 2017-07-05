@@ -12,7 +12,7 @@ class FontList extends Component {
 
   componentDidMount(){
       this.setState({ loading: false})
-      if(this.props.disease == 'Dyslexique') {
+      if(this.props.disease === 'Dyslexique') {
         this.setState({selected: 'sans-serif'})
       }
   }
@@ -33,7 +33,7 @@ class FontList extends Component {
 	<div></div>
         <select style={{fontFamily: this.state.selected}} name="fonts" onChange={(e) => this.changeFont(e)}>
         {array.map((font, key) => {
-          return this.state.selected == font
+          return this.state.selected === font
             ? <option style={{fontFamily: font}} defaultValue key={key} value={font}>{font}</option>
             : <option style={{fontFamily: font}} key={key} value={font}>{font}</option>
         })}
