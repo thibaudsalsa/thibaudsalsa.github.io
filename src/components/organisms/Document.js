@@ -62,7 +62,6 @@ class Document extends Component {
     this.synth = window.speechSynthesis
 
     Mousetrap.bind('left', () => {
-      let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
         let found = false
             for(let j=0;(j<5)&&(found===false);j++){
@@ -78,7 +77,6 @@ class Document extends Component {
     })
 
     Mousetrap.bind('right', () => {
-      let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
         let found = false
             for(let j=0;(j<5)&&(found===false);j++){
@@ -98,11 +96,10 @@ class Document extends Component {
     })
 
     Mousetrap.bind('down', () => {
-      let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       let currentElement = -1
         let found = false
-        for(let i=1; (context.state.selected + i < currentSelected-1)&&(found===false);i++){
+        for(let i=1; (context.state.selected + i < context.maxElements-1)&&(found===false);i++){
             for(let j=0;(j<5)&&(found===false);j++){
                 for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
                     if(context.elements[priorityOrder[j]][k] === context.state.selected + i){
@@ -118,7 +115,6 @@ class Document extends Component {
     })
 
       Mousetrap.bind('up', () => {
-      let currentSelected = context.maxElements
       let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
       let currentElement = -1
         let found = false
