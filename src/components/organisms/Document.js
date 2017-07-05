@@ -96,8 +96,12 @@ class Document extends Component {
 	  if (this.voice === true)
 	  {
 	      context.speak()
+	      this.voice = false
 	  }
-	  	      this.voice != this.voice
+	  else
+	  {
+	      this.voice = true
+	  }
     })
 
     Mousetrap.bind('down', () => {
