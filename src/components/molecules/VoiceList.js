@@ -20,8 +20,15 @@ class SizeList extends Component {
     var selectedIndex = voiceSelect.selectedIndex < 0 ? 0 : voiceSelect.selectedIndex
     voiceSelect.innerHTML = ''
       for(let i = 0; i < voices.length ; i++) {
-      var option = document.createElement('option')
-      option.textContent = voices[i].name + ' (' + voices[i].lang + ')'
+	  var option = document.createElement('option')
+	  if (i === 0)
+	  {
+	      option.textContent = "none"
+	  }
+	  else
+	  {
+	      option.textContent = voices[i].name + ' (' + voices[i].lang + ')'
+	  }
 
       if(voices[i].default) {
         option.textContent += ' -- DEFAULT'
@@ -42,7 +49,7 @@ class SizeList extends Component {
     }
     return (
       <div className="Voice">
-            Voix
+            Voice
 	<div></div>
         <select id="voiceSelect"
           ref={(select) => { this.voiceSelect = select; }}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import jsonPage from '../../res/formatted.json'
 import Mousetrap from 'mousetrap'
 import {htmlTemplate} from '../../res/html.js'
 import htmlparser from 'htmlparser2'
@@ -16,8 +15,8 @@ class Document extends Component {
     this.synth = ""
     this.state = {
       loading: true,
-      json: jsonPage,
       selected: 0,
+      selectAlled: 1,
       typeSelected: "",
       htmlRender: ""
     }
@@ -28,7 +27,7 @@ class Document extends Component {
   }
 
   getSelectedVoice(){
-    console.log("InGEtSelectedVoice", this.props.selectedVoice)
+    //console.log("InGEtSelectedVoice", this.props.selectedVoice)
     let voices = []
     voices = this.synth.getVoices();
     let result = ""
@@ -41,6 +40,25 @@ class Document extends Component {
     return result;
   }
 
+  selectAll(){
+    let context = this
+    let end = false
+    let i = 1
+      let priorityOrder = ["p", "li"]
+    for(i; (context.state.selected+i < context.maxElements+1)&&(end===false);i++){
+      for(let j=0;j<2;j++){
+          for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(end===false);k++){
+              if((context.elements[priorityOrder[j]][k] === context.state.selected + i)&&(end===false)){
+	    end = true
+          }
+        }
+      }
+      end = !end;
+    }
+    this.setState({selectAlled: context.state.selected+i-1})
+      console.log(context.state.selectAlled)
+      console.log(context.elements[priorityOrder[1]])
+  }
 
   speak(){
     var utterThis = new SpeechSynthesisUtterance(this.selectedText);
@@ -74,6 +92,8 @@ class Document extends Component {
             }
         if(found===false){
             this.setState({selected: context.state.selected - 1})
+            this.setState({selectAlled: context.state.selected + 1})
+	    context.speak()
         }
     })
 
@@ -89,6 +109,8 @@ class Document extends Component {
             }
         if(found===false){
             this.setState({selected: context.state.selected + 1})
+            this.setState({selectAlled: context.state.selected + 1})
+	    context.speak()
         }
     })
 
@@ -120,6 +142,8 @@ class Document extends Component {
         }
         if(found===true){
             this.setState({selected: currentElement})
+	    context.selectAll()
+	    context.speak()
         }
     })
 
@@ -139,6 +163,8 @@ class Document extends Component {
         }
         if(found===true){
             this.setState({selected: currentElement})
+	    context.selectAll()
+	    context.speak()
         }
     })
   }
@@ -172,17 +198,16 @@ class Document extends Component {
         if(name in context.elements && name !== "ul" && name !== "ol"){
           context.elements[name].push(i)
           finalHtml += "<"+name
-          if(context.state.selected === i && name !== "ul" && name !== "ol" ){
+            if((i >= context.state.selected && i <= context.state.selectAlled-1) && name !== "ul" && name !== "ol" ){
             finalHtml += " id='selected'"
             context.typeSelected = name
           }
             finalHtml += ">"
 	    let found = false
-	    nb_link += 1
-//	    console.log(nb_link)
 	    for(let j=0;(j<5)&&(found===false);j++){
 		for(let k=0;(k<context.elements[title[j]].length)&&(found===false);k++){
-		    if(context.elements[title[j]][k] === context.state.selected){
+		    if(context.elements[title[j]][k] === i){
+			nb_link += 1
 			finalHtml += "<div id='section_"+nb_link+"'>"
 			found = true
 		    }
@@ -215,54 +240,6 @@ class Document extends Component {
   finalHtml = finalHtml.replace("undefined", "");
 
   this.maxElements = i
-	    // (function() // Code in a function to create an isolate scope
-	    //  {
-	    // 	 var speed = 300;
-	    // 	 var moving_frequency = 15; // Affects performance !
-	    // 	 var links = document.querySelectorAll("nav a"); // Active links
-	    // 	 var href;
-	    // 	 for(var i=0; i<links.length; i++)
-	    // 	 {
-	    // 	     href = (links[i].attributes.href === undefined) ? null : links[i].attributes.href.nodeValue.toString();
-	    // 	     if(href !== null && href.length > 1 && href.substr(0, 1) == '#')
-	    // 	     {
-	    // 		 links[i].onclick = function()
-	    // 		 {
-	    // 		     var element;
-	    // 		     var href = this.attributes.href.nodeValue.toString();
-	    // 		     if(element = document.getElementById(href.substr(1)))
-	    // 		     {
-	    // 			 var hop_count = speed/moving_frequency
-	    // 			 var getScrollTopDocumentAtBegin = getScrollTopDocument();
-	    // 			 var gap = (getScrollTopElement(element) - getScrollTopDocumentAtBegin) / hop_count;
-	    // 			 for(var j = 1; j <= hop_count; j++)
-	    // 			 {
-	    // 			     (function()
-	    // 			      {
-	    // 				  var hop_top_position = gap*j;
-	    // 				  setTimeout(function(){  window.scrollTo(0, hop_top_position + getScrollTopDocumentAtBegin); }, moving_frequency*j);
-	    // 			      })();
-	    // 			 }
-	    // 		     }
-	    // 		     return false;
-	    // 		 };
-	    // 	     }
-	    // 	 }
-	    // 	 var getScrollTopElement =  function (e)
-	    // 	 {
-	    // 	     var top = 0;
-	    // 	     while (e.offsetParent != undefined && e.offsetParent != null)
-	    // 	     {
-	    // 		 top += e.offsetTop + (e.clientTop != null ? e.clientTop : 0);
-	    // 		 e = e.offsetParent;
-	    // 	     }
-	    // 	     return top;
-	    // 	 };
-	    // 	 var getScrollTopDocument = function()
-	    // 	 {
-	    // 	     return document.documentElement.scrollTop + document.body.scrollTop;
-	    // 	 };
-	    //  })();
 
     return <div className="Document">{ ReactHtmlParser(finalHtml) }</div>;
   }

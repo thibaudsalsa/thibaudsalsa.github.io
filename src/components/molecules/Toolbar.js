@@ -1,6 +1,4 @@
-import share from "../../../public/share.svg"
 import React, { Component } from 'react';
-import edit from "../../../public/edit.svg"
 
 
 class Toolbar extends Component {
@@ -18,8 +16,6 @@ class Toolbar extends Component {
   render() {
     return (
       <div className="Toolbar">
-        <img src={edit} alt="Aller au titre précédent" />
-        <img src={share} alt="Aller au titre suivant" />
       </div>
     );
   }

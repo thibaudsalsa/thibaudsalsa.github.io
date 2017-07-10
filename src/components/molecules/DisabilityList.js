@@ -22,17 +22,7 @@ class DisabilityList extends Component {
 
   render() {
     return (
-      <div className="DisabilityList">
-            Accomodations prédéfinies
-	    <div>
-	    </div>
-        <select name="disabilities" onChange={(e) => this.props.onChange(e)}>
-        {this.state.list.map((disability, key) => {
-        return key === this.state.selected
-            ? <option key={key} value={disability} defaultValue>{disability}</option>
-            : <option key={key} value={disability} >{disability}</option>
-        })}
-        </select>
+      <div>
       </div>
     );
   }

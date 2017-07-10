@@ -19,20 +19,20 @@ class PaletteList extends Component {
     console.log(this.state.active)
     switch(this.state.active) {
     default:
-        document.getElementById("MenuTop").style.background = '#1fa8e2'
-        document.getElementById("MenuLeft").style.background = '#D3D3D3'
-        document.getElementById("MenuRight").style.background = '#D3D3D3'
+        document.getElementById("MenuTop").style.background = '#0'
+        document.getElementById("MenuLeft").style.background = '#FFFFFF'
+        document.getElementById("MenuRight").style.background = '#0'
         break;
       case 2:
-        document.getElementById("MenuTop").style.background = '#a30000'
-        document.getElementById("MenuRight").style.background = '#C9C9C9'
-        document.getElementById("MenuLeft").style.background = '#C9C9C9'
+        document.getElementById("MenuTop").style.background = '#0'
+        document.getElementById("MenuRight").style.background = '#0'
+        document.getElementById("MenuLeft").style.background = '#E0CDA9'
 
         break;
       case 3:
-        document.getElementById("MenuTop").style.background = '#08a045'
-        document.getElementById("MenuRight").style.background = '#B5D99C'
-        document.getElementById("MenuLeft").style.background = '#B5D99C'
+        document.getElementById("MenuTop").style.background = '#0'
+        document.getElementById("MenuRight").style.background = '#0'
+        document.getElementById("MenuLeft").style.background = '#D2CAEC'
 
         break;
     }
@@ -45,36 +45,30 @@ class PaletteList extends Component {
   render() {
     return (
       <div className="PaletteTop">
-        Choisir sa palette
+        color
         <div className="PaletteList">
           {this.state.active === 1
             ? <div className="Palette Active" onClick={() => this.toggleActive(1)}>
-              <div style={{width: "4em", height: "4em", background: '#1fa8e2'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#d3d3d3'}}></div>
+              <div style={{width: "4em", height: "4em", background: '#FFFFFF'}}></div>
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(1)}>
-              <div style={{width: "4em", height: "4em", background: '#1fa8e2'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#d3d3d3'}}></div>
+              <div style={{width: "4em", height: "4em", background: '#FFFFFF'}}></div>
             </div>
           }
           {this.state.active === 2
             ? <div className="Palette Active" onClick={() => this.toggleActive(2)}>
-              <div style={{width: "4em", height: "4em", background: '#a30000'}}></div>
-           <div style={{width: "4em", height: "4em", background: '#c9c9c9'}}></div>
+              <div style={{width: "4em", height: "4em", background: '#E0CDA9'}}></div>
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(2)}>
-              <div style={{width: "4em", height: "4em", background: '#a30000'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#c9c9c9'}}></div>
+              <div style={{width: "4em", height: "4em", background: '#E0CDA9'}}></div>
             </div>
           }
           {this.state.active === 3
             ? <div className="Palette Active" onClick={() => this.toggleActive(3)}>
-            <div style={{width: "4em", height: "4em", background: '#08a045'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#b5d99c'}}></div>
+            <div style={{width: "4em", height: "4em", background: '#D2CAEC'}}></div>
             </div>
             : <div className="Palette" onClick={() => this.toggleActive(3)}>
-              <div style={{width: "4em", height: "4em", background: '#08a045'}}></div>
-              <div style={{width: "4em", height: "4em", background: '#b5d99c'}}></div>
+              <div style={{width: "4em", height: "4em", background: '#D2CAEC'}}></div>
             </div>
           }
         </div>
