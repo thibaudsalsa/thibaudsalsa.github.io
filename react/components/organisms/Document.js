@@ -88,8 +88,8 @@ var utterThis = new SpeechSynthesisUtterance(this.selectedText);
       this.synth = window.speechSynthesis
 
     Mousetrap.bind(keyboard[3], () => {
-      let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
-        let found = false
+	let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"]
+	let found = false
             for(let j=0;(j<5)&&(found===false);j++){
                 for(let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++){
                                     if(context.elements[priorityOrder[j]][k] === context.state.selected){
