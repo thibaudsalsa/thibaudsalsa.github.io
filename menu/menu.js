@@ -1,12 +1,7 @@
-import SizeList from "SizeList"
-import FontList from "FontList"
-import PaletteList from "PaletteList"
-import VoiceList from "VoiceList"
-
-function menu_left()
-{
-    document./*getElementById('myDiv').*/innerHTML += '<div className="MenuLeft"/>';
-}
+import SizeList from "./SizeList"
+import FontList from "./FontList"
+import PaletteList from "./PaletteList"
+import VoiceList from "./VoiceList"
 
 function create_parameters()
 {
