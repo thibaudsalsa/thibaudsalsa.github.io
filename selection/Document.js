@@ -60,8 +60,11 @@ function selection()
 	for (var i = 2; 'selected' != childNode[i].nodeid; i++)
 	{
 	}
-	childNode[i + 1].nodeid = 'selected';
-	childNode[i].nodeid = '';
+	if (childNode[i].nodeName[0] !== 'H')
+	{
+	    childNode[i + 1].nodeid = 'selected';
+	    childNode[i].nodeid = '';
+	}
     })
 
 
@@ -71,8 +74,11 @@ function selection()
 	for (var i = 2; 'selected' != childNode[i].nodeid; i++)
 	{
 	}
-	childNode[i - 1].nodeid = 'selected';
-	childNode[i].nodeid = '';
+	if (childNode[i].nodeName[0] !== 'H')
+	{
+	    childNode[i - 1].nodeid = 'selected';
+	    childNode[i].nodeid = '';
+	}
     })
 
 
