@@ -2,7 +2,8 @@
  * Created by Dondeo on 7/13/17.
  */
 
-var checkElem = ['BODY', 'P', 'H1', 'H2', 'H3', 'H4', 'H5', 'OL', 'LI', 'A'];
+
+var checkElem = ['BODY', 'P', 'H1', 'H2', 'H3', 'H4', 'H5', 'OL', 'LI', 'A', 'IMG'];
 
 function f1() {
     var childNode = document.body.childNodes;
@@ -11,15 +12,17 @@ function f1() {
     var childPart;
 
     for(var i = 2; i < childLength; i++) {
-        if(childNode[i].nodeType === 1 && childNode[i].hasChildNodes() === true) {
+        if(childNode[i].nodeType === 1) {
             childPart = f2(childNode[i], newBody, newBody);
             if (newBody !== childPart) {
                 newBody.appendChild(childPart);
             }
         }
     }
+    newBody.firstElementChild.setAttribute("id", "selected");
     document.documentElement.removeChild(document.body);
     document.documentElement.appendChild(newBody);
+    selection();
 }
 
 function f2(myNode, newBody, parentBody) {
@@ -37,6 +40,17 @@ function f3(myNode, newBody, parentBody) {
     }
     if (tempNode.nodeName.localeCompare(myNode.nodeName) === 0) {
         bodyPart = document.createElement(myNode.nodeName);
+        if (tempNode.nodeName.localeCompare("A") === 0 && tempNode.hasAttribute("href")){
+            bodyPart.setAttribute("href", tempNode.getAttribute("href"))
+        }
+        else if (tempNode.nodeName.localeCompare("IMG") === 0){
+            if (tempNode.hasAttribute("src")) {
+                bodyPart.setAttribute("src", tempNode.getAttribute("src"))
+            }
+            if (tempNode.hasAttribute("alt")) {
+                bodyPart.setAttribute("alt", tempNode.getAttribute("alt"))
+            }
+        }
     }
     else if (tempNode.nodeName.localeCompare(newBody.nodeName) === 0) {
         bodyPart = newBody;
@@ -54,12 +68,9 @@ function f4(bodyPart, myNode, newBody) {
 
     for(var i = 0; i < childLength; i++) {
         if(childNode[i].nodeType === 1) {
-            if (childNode[i].hasChildNodes() === true) {
-                childPart = f2(childNode[i], newBody, bodyPart);
-                if (bodyPart !== childPart) {
-                    childPart = f5();
-                    bodyPart.appendChild(childPart);
-                }
+            childPart = f2(childNode[i], newBody, bodyPart);
+            if (bodyPart !== childPart) {
+                bodyPart.appendChild(childPart);
             }
         }
         else if (childNode[i].nodeType === 3) {
@@ -68,8 +79,4 @@ function f4(bodyPart, myNode, newBody) {
         }
     }
     return (bodyPart);
-}
-
-function f5() {
-    
 }
