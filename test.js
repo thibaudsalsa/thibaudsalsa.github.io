@@ -57,6 +57,7 @@ function f4(bodyPart, myNode, newBody) {
             if (childNode[i].hasChildNodes() === true) {
                 childPart = f2(childNode[i], newBody, bodyPart);
                 if (bodyPart !== childPart) {
+                    childPart = f5();
                     bodyPart.appendChild(childPart);
                 }
             }
@@ -67,4 +68,8 @@ function f4(bodyPart, myNode, newBody) {
         }
     }
     return (bodyPart);
+}
+
+function f5() {
+    
 }
