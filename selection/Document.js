@@ -1,145 +1,95 @@
 import Mousetrap from 'mousetrap'
 import keyboard  from './keyboard.js';
 
-
-
-
 function selection()
 {
-    this.typeSelected = "";
-    this.initElements();
-    this.voice = true;
-    this.maxElements = 0;
-    this.selectedText = "";
-    this.synth = "";
-    this.loading = true;
-    this.selected = 0;
-    this.selectAlled = 1;
-    this.htmlRender = "";
+    var childNode = document.body.childNodes;
+    var checkElem = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'OL', 'LI'];
 
-    context = this;
+    function main() {
+        var childNode = document.body.childNodes;
+        var bodyPart = document.createElement("BODY");
+        var childPart;
+
+        for(var i = 2; 'selected' != childNode[i].nodeid; i++) {
+            if(childNode[i].nodeType === 1) {
+                if(childNode[i].hasChildNodes() === true) {
+                    childPart = exploreNode(childNode[i]);
+                    bodyPart.appendChild(childPart);
+                }
+            }
+        }
+        document.documentElement.removeChild(document.body);
+        document.documentElement.appendChild(bodyPart);
+    }
+
+    function exploreNode(myNode) {
+        var childNode = myNode.childNodes;
+        var posCheckElem = -1;
+        var bodyPart = document.createElement(myNode.nodeName);
+        var childPart;
+
+        for(var i = 0; i < childNode.length; i++) {
+            if(childNode[i].nodeType === 1) {
+                if (childNode[i].hasChildNodes() === true) {
+                    childPart = exploreNode(childNode[i]);
+                }
+                posCheckElem = checkElem.indexOf(childNode[i].nodeName);
+                if(posCheckElem !== -1) {
+                    bodyPart.appendChild(childPart);
+                }
+            }
+            else if (childNode[i].nodeType === 3) {
+                childPart = document.createTextNode(childNode[i].nodeValue);
+                bodyPart.appendChild(childPart);
+            }
+        }
+        return (bodyPart);
+    }
+
+
+
+
+
+
 
 
     // RIGHT KEY
     Mousetrap.bind(keyboard[4], () => {
-        let priorityOrder = ["h1", "h2", "h3", "h4", "h5"];
-        let found = false;
-        for (let j=0;(j<5)&&(found===false);j++)
-        {
-            for (let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++)
-            {
-                if (context.elements[priorityOrder[j]][k] === context.selected + 1 || context.selected >= context.maxElements - 1)
-                {
-                    found = true
-                }
-            }
-        }
-    if (found===false)
-    {
-        this.selected = context.selected + 1;
-        this.selectAlled = context.selected + 1;
-        context.updateSpeak();
-        context.speak()
-    }
+	var childNode = document.body.childNodes;
+	for(var i = 2; 'selected' != childNode[i].nodeid; i++) {
+	}
+	childNode[i + 1].nodeid = 'selected';
+	childNode[i].nodeid = '';
     })
 
 
     //LEFT KEY
     Mousetrap.bind(keyboard[3], () => {
-        let priorityOrder = ["h1", "h2", "h3", "h4", "h5"];
-        let found = false
-        for (let j=0;(j<5)&&(found===false);j++)
-        {
-            for (let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++)
-            {
-                if (context.elements[priorityOrder[j]][k] === context.selected)
-                {
-                    found = true
-                }
-            }
-        }
-    if (found===false)
-    {
-        this.selected = context.selected - 1;
-        this.selectAlled = context.selected + 1;
-        context.updateSpeak();
-        context.speak()
-    }
+	var childNode = document.body.childNodes;
+	for(var i = 2; 'selected' != childNode[i].nodeid; i++) {
+	}
+	childNode[i - 1].nodeid = 'selected';
+	childNode[i].nodeid = '';
     })
 
 
     // UP KEY
     Mousetrap.bind(keyboard[2], () => {
-        let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"];
-        let currentElement = -1;
-        let found = false;
-        for (let i=1; (context.selected + i < context.maxElements-1)&&(found===false);i++)
-        {
-            for (let j=0;(j<5)&&(found===false);j++)
-            {
-                for (let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++)
-                {
-                    if (context.elements[priorityOrder[j]][k] === context.selected + i)
-                    {
-                        currentElement = context.selected + i;
-                        found = true
-                    }
-                }
-            }
-        }
-    if (found===true)
-    {
-        this.selected = currentElement;
-        context.selectAll();
-        context.updateSpeak();
-        context.speak()
-    }
+	var childNode = document.body.childNodes;
+	for(var i = 2; 'selected' != childNode[i].nodeid; i++) {
+	}
+	childNode[i - 1].nodeid = 'selected';
+	childNode[i].nodeid = '';
     })
 
 
     // DOWN KEY
     Mousetrap.bind(keyboard[1], () => {
-        let priorityOrder = ["h1", "h2", "h3", "h4", "h5", "p", "li"];
-        let currentElement = -1;
-        let found = false;
-        for (let i=1; (context.selected - i >= 0)&&(found===false);i++)
-        {
-            for(let j=0;(j<5)&&(found===false);j++)
-            {
-                for (let k=0;(k<context.elements[priorityOrder[j]].length)&&(found===false);k++)
-                {
-                    if (context.elements[priorityOrder[j]][k] === context.selected - i)
-                    {
-                        currentElement = context.selected - i;
-                        found = true
-                    }
-                }
-            }
-        }
-    if(found===true)
-    {
-        this.selected = currentElement;
-        context.selectAll();
-        context.updateSpeak();
-        context.speak();
-    }
+	var childNode = document.body.childNodes;
+	for(var i = 2; 'selected' != childNode[i].nodeid; i++) {
+	}
+	childNode[i - 1].nodeid = 'selected';
+	childNode[i].nodeid = '';
     })
-
-    initElement()
-    {
-        this.elements =
-            {
-                h1: [],
-                h2: [],
-                h3: [],
-                h4: [],
-                h5: [],
-                p: [],
-                li: [],
-                ol: [],
-                ul: []
-            }
-    }
 }
-
-//ne pas recreer la page, donc modifier la selection dans la fonction de detection des touches
