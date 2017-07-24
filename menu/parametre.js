@@ -3,6 +3,8 @@ import FontList from "./FontList"
 import PaletteList from "./PaletteList"
 import VoiceList from "./VoiceList"
 
+var init_menu = 0;
+
 function create_parameters()
 {
     var div = document.createElement("div");
@@ -15,7 +17,7 @@ function create_parameters()
 
 function parameters()
 {
-    var poulet =
+    var font =
     {
         loading: true,
         disease: "Basique"
@@ -23,15 +25,15 @@ function parameters()
 
     onChange(e)
     {
-        poulet.disease = e.target.value;
+        font.disease = e.target.value;
     }
 
-    Parameters.getElementById('P_create').innerHTML = '<div className="Parameters">' +
+    return ('<div className="Parameters">' +
         '<div className="Online">' +
-        '<SizeList disease={poulet.disease}/>' +
-        '<FontList disease={poulet.disease}/>' +
+        '<SizeList disease={font.disease}/>' +
+        '<FontList disease={font.disease}/>' +
         '</div>' +
-        '<PaletteList disease={poulet.disease}/>' +
-        '<VoiceList setSelectedVoice={poulet.setSelectedVoice}/>' +
-        '<\div>';
+        '<PaletteList disease={font.disease}/>' +
+        '<VoiceList setSelectedVoice={font.setSelectedVoice}/>' +
+            '<\div>');
 }
