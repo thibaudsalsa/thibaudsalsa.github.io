@@ -2,6 +2,7 @@ function selection()
 {
     // RIGHT KEY
     Mousetrap.bind(keyboard[4], () => {
+	console.log('poulet');
 	var childNode = document.body.childNodes;
 	for (var i = 2; 'selected' != childNode[i].nodeid; i++)
 	{
