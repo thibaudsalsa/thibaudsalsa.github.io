@@ -69,4 +69,7 @@ function selection()
 	    }
 	}
     })
+    var elmt = document.getElementById("selected");
+    elmt.style.backgroundColor = "#c0c0c0";
+    elmt.style.color = "#ff0000";
 }
