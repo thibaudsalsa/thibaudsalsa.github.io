@@ -1,7 +1,3 @@
-import Mousetrap from 'mousetrap'
-import keyboard  from './keyboard.js';
-import './index.css'
-
 function selection()
 {
     // RIGHT KEY
