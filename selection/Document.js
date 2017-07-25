@@ -37,7 +37,7 @@ function selection()
 	}
 	temp = i;
 	i--;
-	for (i < childNode.lenght, i--)
+	for (;i < childNode.length; i--)
 	{
 	    if (childNode[i].nodeName[0] === 'H')
 	    {
@@ -59,7 +59,7 @@ function selection()
 	}
 	temp = i;
 	i++;
-	for (i < childNode.lenght, i++)
+	for (;i < childNode.length; i++)
 	{
 	    if (childNode[i].nodeName[0] === 'H')
 	    {
@@ -69,7 +69,4 @@ function selection()
 	    }
 	}
     })
-    var elmt = document.getElementById("selected");
-    elmt.style.backgroundColor = "#c0c0c0";
-    elmt.style.color = "#ff0000";
 }
