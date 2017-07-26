@@ -87,11 +87,6 @@ function f5() {
     elmt.style.color = "#ff0000";
 
     var my_script = document.createElement("SCRIPT");
-
-    my_script.setAttribute("src", "https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js");
+    my_script.setAttribute("src", "./key.js");
     document.body.appendChild(my_script);
-    my_script = document.createElement("SCRIPT");
-    my_script.setAttribute("src", "./selection/Document.js");
-    document.body.appendChild(my_script);
-    selection();
 }
