@@ -82,7 +82,6 @@ function applyKey (_event_){
 	    childNode[i].id = '';
             childNode[i + 1].id = 'selected';
         }
-	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
@@ -99,7 +98,6 @@ function applyKey (_event_){
 	    childNode[i].id = '';
             childNode[i - 1].id = 'selected';
         }
-	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
@@ -126,7 +124,6 @@ function applyKey (_event_){
                 break;
             }
         }
-	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
@@ -151,12 +148,8 @@ function applyKey (_event_){
                 break;
             }
         }
-	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
     }
-    var elmt = document.getElementById("selected");
-    elmt.style.backgroundColor = "#c0c0c0";
-    elmt.style.color = "#ff0000";
 }
