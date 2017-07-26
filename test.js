@@ -11,12 +11,11 @@ function f1() {
     var newBody = document.createElement("BODY");
     var childLength = childNode.length;
     var childPart;
-//    var newHead = document.createElement("HEAD"); /* soon */
 
 //Parcours du body actuel
     for(var i = 2; i < childLength; i++) { //i a modifier pour version finale
+        //
         if(childNode[i].nodeType === 1) {
-            //parsing entier d'une balise du body
             childPart = f2(childNode[i], newBody, newBody);
             //Ajoute la balise si ce n'est pas déjà le cas
             if (newBody !== childPart) {
@@ -50,9 +49,11 @@ function f3(myNode, newBody, parentBody) {
     //La balise envoyé en paramètre est valide : Création d'une nouvelle balise
     if (tempNode.nodeName.localeCompare(myNode.nodeName) === 0) {
         bodyPart = document.createElement(myNode.nodeName);
+        //
         if (tempNode.nodeName.localeCompare("A") === 0 && tempNode.hasAttribute("href")){
             bodyPart.setAttribute("href", tempNode.getAttribute("href"))
         }
+        //
         else if (tempNode.nodeName.localeCompare("IMG") === 0){
             if (tempNode.hasAttribute("src")) {
                 bodyPart.setAttribute("src", tempNode.getAttribute("src"))
@@ -62,21 +63,27 @@ function f3(myNode, newBody, parentBody) {
             }
         }
     }
+    //
+        //
     else if (tempNode.nodeName.localeCompare(newBody.nodeName) === 0) {
         bodyPart = newBody;
     }
+    //
     else {
         bodyPart = parentBody;
     }
     return (bodyPart);
 }
 
+//
 function f4(bodyPart, myNode, newBody) {
     var childNode = myNode.childNodes;
     var childLength = childNode.length;
     var childPart;
 
+    //
     for(var i = 0; i < childLength; i++) {
+        //
         if(childNode[i].nodeType === 1) {
             childPart = f2(childNode[i], newBody, bodyPart);
             if (bodyPart !== childPart) {
