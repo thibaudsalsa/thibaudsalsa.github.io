@@ -81,6 +81,12 @@ function applyKey (_event_){
         {
 	    childNode[i].className = '';
             childNode[i + 1].className = 'selected';
+	    i = i + 2;
+	    while (childNode[i].className === 'selected')
+	    {
+		childNode[i].className = ''
+		i = i + 1;
+	    }
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
@@ -97,6 +103,11 @@ function applyKey (_event_){
         {
 	    childNode[i].className = '';
             childNode[i - 1].className = 'selected';
+	    while (childNode[i].className === 'selected')
+	    {
+		childNode[i].className = ''
+		i = i + 1;
+	    }
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
