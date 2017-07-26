@@ -153,7 +153,8 @@ function generateTOC(toc) {
             node.id = "section" + section;
             toc.lastChild.lastChild.lastChild.lastChild.appendChild(document.createElement("li")).appendChild(createLink("#section" + section, node.innerHTML));
         }
-        else if (tagName == "h2") {
+        else if (tagName == "h2")
+        {
             ++i2, i3 = 0, i4 = 0;
             if (i2 == 1) toc.lastChild.appendChild(document.createElement("ul"));
             var section = i1 + "." + i2;
