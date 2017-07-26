@@ -1,6 +1,5 @@
 document.onkeydown = applyKey;
 
-
 KEY_DOWN	= 40;
 KEY_UP		= 38;
 KEY_LEFT	= 37;
@@ -9,15 +8,13 @@ KEY_RIGHT	= 39;
 KEY_END		= 35;
 KEY_BEGIN	= 36;
 
-
-
 KEY_BACK_TAB 	= 8;
-KEY_TAB				= 9;
+KEY_TAB		= 9;
 KEY_SH_TAB  	= 16;
-KEY_ENTER			= 13;
-KEY_ESC				= 27;
-KEY_SPACE			= 32;
-KEY_DEL				= 46;
+KEY_ENTER	= 13;
+KEY_ESC		= 27;
+KEY_SPACE	= 32;
+KEY_DEL		= 46;
 
 KEY_A		= 65;
 KEY_B		= 66;
@@ -83,8 +80,8 @@ function applyKey (_event_){
         }
         if (childNode[i].nodeName[0] !== 'H')
         {
+	    childNode[temp].id = '';
             childNode[i + 1].id = 'selected';
-            childNode[i].id = '';
         }
 	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
@@ -100,8 +97,8 @@ function applyKey (_event_){
         }
         if (childNode[i].nodeName[0] !== 'H')
         {
+	    childNode[temp].id = '';
             childNode[i - 1].id = 'selected';
-            childNode[i].id = '';
         }
 	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
@@ -117,13 +114,16 @@ function applyKey (_event_){
 	{
         }
         temp = i;
-	i--;
+	if (i != 0)
+	{
+	    i--;
+	}
         for (;i < childNode.length; i--)
         {
             if (childNode[i].nodeName[0] === 'H')
             {
+		childNode[temp].id = '';
                 childNode[i].id = 'selected';
-                childNode[temp].id = '';
                 break;
             }
         }
@@ -138,7 +138,7 @@ function applyKey (_event_){
 	var found = false
         var temp = 0;
         var childNode = document.body.childNodes;
-        for (var i = 2; 'selected' != childNode[i].id; i++)
+        for (var i = 0; 'selected' != childNode[i].id; i++)
         {
         }
         temp = i;
@@ -147,8 +147,8 @@ function applyKey (_event_){
         {
             if (childNode[i].nodeName[0] === 'H')
             {
+		childNode[temp].id = '';
                 childNode[i].id = 'selected';
-                childNode[temp].id = '';
                 break;
             }
         }
@@ -157,4 +157,7 @@ function applyKey (_event_){
 	winObj.returnValue = false;
 	return false;
     }
+    var elmt = document.getElementById("selected");
+    elmt.style.backgroundColor = "#c0c0c0";
+    elmt.style.color = "#ff0000";
 }
