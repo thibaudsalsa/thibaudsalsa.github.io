@@ -76,28 +76,28 @@ function applyKey (_event_){
 
     if ( intKeyCode == KEY_RIGHT)
     {
-	alert("Hello !");d
+	alert("Hello !");
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
     }
     if (intKeyCode == KEY_LEFT )
     {
-	alert("Hello !");d
+	alert("Hello !");
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
     }
     if ( intKeyCode == KEY_UP)
     {
-	alert("Hello !");d
+	alert("Hello !");
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
     }
     if ( intKeyCode == KEY_DOWN)
     {
-	alert("Hello !");d
+	alert("Hello !");
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
