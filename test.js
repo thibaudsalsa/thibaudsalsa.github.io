@@ -10,6 +10,8 @@ function f1() {
     var newBody = document.createElement("BODY");
     var childLength = childNode.length;
     var childPart;
+//    var newHead = document.createElement("HEAD");
+
 
     for(var i = 2; i < childLength; i++) {
         if(childNode[i].nodeType === 1) {
@@ -82,9 +84,15 @@ function f4(bodyPart, myNode, newBody) {
 }
 
 function f5() {
-    var elmt = document.getElementById("selected");
-    elmt.style.backgroundColor = "#c0c0c0";
-    elmt.style.color = "#ff0000";
+    var my_css = document.createElement("LINK");
+    my_css.setAttribute("rel", "stylesheet");
+    my_css.setAttribute("type", "text/css");
+    my_css.setAttribute("href", "selection/index.css");
+    document.head.appendChild(my_css);
+
+//    var elmt = document.getElementById("selected");
+//    elmt.style.backgroundColor = "#c0c0c0";
+//    elmt.style.color = "#ff0000";
 
     var my_script = document.createElement("SCRIPT");
     my_script.setAttribute("src", "./key.js");
