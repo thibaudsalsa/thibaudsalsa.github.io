@@ -82,7 +82,7 @@ function applyKey (_event_){
 	    childNode[i].className = '';
             childNode[i + 1].className = 'selected';
 	    i = i + 2;
-	    while (childNode[i].className === 'selected')
+	    while (i < childNode.length && childNode[i].className === 'selected')
 	    {
 		childNode[i].className = ''
 		i = i + 1;
@@ -137,12 +137,20 @@ function applyKey (_event_){
             {
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
-		for (;childNode[temp].nodeName[0] !== 'H'; temp++)
+		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
+		{
+		//for (;childNode[temp].nodeName[0] !== 'H'; temp++)
 		    childNode[temp].className = 'nop';
+		    temp = temp + 1;
+		}
                 childNode[i].className = 'selected';
 		i = i + 1;
-		for (;childNode[i].nodeName[0] !== 'H'; i++)
+		while (i < childNode.length && childNode[i].nodeName[0] !== 'H')
+		{
+		    //for (;childNode[i].nodeName[0] !== 'H'; i++)
 		    childNode[i].className = 'selected';
+		    i = i + 1;
+		}
                 break;
             }
         }
@@ -167,12 +175,20 @@ function applyKey (_event_){
             {
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
-		for (;childNode[temp].nodeName[0] !== 'H'; temp++)
+		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
+		{
+		//for (;childNode[temp].nodeName[0] !== 'H'; temp++)
 		    childNode[temp].className = 'nop';
+		    temp = temp + 1;
+		}
                 childNode[i].className = 'selected';
 		i = i + 1;
-		for (;childNode[i].nodeName[0] !== 'H'; i++)
+		while (i < childNode.length && childNode[i].nodeName[0] !== 'H')
+		{
+		    //for (;childNode[i].nodeName[0] !== 'H'; i++)
 		    childNode[i].className = 'selected';
+		    i = i + 1;
+		}
                 break;
             }
         }
