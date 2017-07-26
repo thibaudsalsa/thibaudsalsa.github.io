@@ -1,3 +1,6 @@
+document.onkeydown = applyKey;
+
+
 KEY_DOWN	= 40;
 KEY_UP		= 38;
 KEY_LEFT	= 37;
@@ -65,13 +68,13 @@ function checkEventObj ( _event_ ){
 }
 
 function applyKey (_event_){
-	// initialisation en fonction du navigateur
+    // initialisation en fonction du navigateur
+    
 	var winObj = checkEventObj(_event_);
 	var intKeyCode = winObj.keyCode;
 	var intAltKey = winObj.altKey;
 	var intCtrlKey = winObj.ctrlKey;
     // --- Access without [ALT/CTRL+Key]
-    
 		if ( intKeyCode == KEY_RIGHT || intKeyCode == KEY_LEFT ){
 			// --- Display Message
 			alert("Hello !");
