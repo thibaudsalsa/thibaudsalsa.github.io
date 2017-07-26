@@ -74,13 +74,12 @@ function applyKey (_event_){
     if ( intKeyCode == KEY_RIGHT)
     {
 	var childNode = document.body.childNodes;
-	console.log(childNode[0].id);
         for (var i = 0; 'selected' != childNode[i].id; i++)
         {
         }
-        if (childNode[i].nodeName[0] !== 'H')
+        if (i+1 < childNode.length-1 && childNode[i + 1].nodeName[0] !== 'H')
         {
-	    childNode[temp].id = '';
+	    childNode[i].id = '';
             childNode[i + 1].id = 'selected';
         }
 	//
@@ -95,9 +94,9 @@ function applyKey (_event_){
         for (var i = 0; 'selected' != childNode[i].id; i++)
         {
         }
-        if (childNode[i].nodeName[0] !== 'H')
+        if (i-1 >= 0 && childNode[i-1].nodeName[0] !== 'H' && childNode[i].nodeName[0] !== 'H')
         {
-	    childNode[temp].id = '';
+	    childNode[i].id = '';
             childNode[i - 1].id = 'selected';
         }
 	//
