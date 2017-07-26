@@ -76,28 +76,83 @@ function applyKey (_event_){
 
     if ( intKeyCode == KEY_RIGHT)
     {
-	alert("Hello !");
+	var childNode = document.body.childNodes;
+	console.log(childNode[0].id);
+        for (var i = 0; 'selected' != childNode[i].id; i++)
+        {
+        }
+        if (childNode[i].nodeName[0] !== 'H')
+        {
+            childNode[i + 1].id = 'selected';
+            childNode[i].id = '';
+        }
+	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
     }
+
     if (intKeyCode == KEY_LEFT )
     {
-	alert("Hello !");
+	var childNode = document.body.childNodes;
+        for (var i = 0; 'selected' != childNode[i].id; i++)
+        {
+        }
+        if (childNode[i].nodeName[0] !== 'H')
+        {
+            childNode[i - 1].id = 'selected';
+            childNode[i].id = '';
+        }
+	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
     }
+
     if ( intKeyCode == KEY_UP)
     {
-	alert("Hello !");
+	var temp = 0;
+	var childNode = document.body.childNodes;
+	for (var i = 0; 'selected' != childNode[i].id; i++)
+	{
+        }
+        temp = i;
+	i--;
+        for (;i < childNode.length; i--)
+        {
+            if (childNode[i].nodeName[0] === 'H')
+            {
+                childNode[i].id = 'selected';
+                childNode[temp].id = '';
+                break;
+            }
+        }
+	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
     }
+
     if ( intKeyCode == KEY_DOWN)
     {
-	alert("Hello !");
+	var found = false
+        var temp = 0;
+        var childNode = document.body.childNodes;
+        for (var i = 2; 'selected' != childNode[i].id; i++)
+        {
+        }
+        temp = i;
+        i++;
+        for (;i < childNode.length; i++)
+        {
+            if (childNode[i].nodeName[0] === 'H')
+            {
+                childNode[i].id = 'selected';
+                childNode[temp].id = '';
+                break;
+            }
+        }
+	//
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
