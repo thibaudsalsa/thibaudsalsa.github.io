@@ -69,18 +69,37 @@ function checkEventObj ( _event_ ){
 
 function applyKey (_event_){
     // initialisation en fonction du navigateur
-    
-	var winObj = checkEventObj(_event_);
-	var intKeyCode = winObj.keyCode;
-	var intAltKey = winObj.altKey;
-	var intCtrlKey = winObj.ctrlKey;
-    // --- Access without [ALT/CTRL+Key]
-		if ( intKeyCode == KEY_RIGHT || intKeyCode == KEY_LEFT ){
-			// --- Display Message
-			alert("Hello !");
-			// --- Map the keyCode in another keyCode not used
-			winObj.keyCode = intKeyCode = REMAP_KEY_T;
-			winObj.returnValue = false;
-			return false;
-		}
+    var winObj = checkEventObj(_event_);
+    var intKeyCode = winObj.keyCode;
+    var intAltKey = winObj.altKey;
+    var intCtrlKey = winObj.ctrlKey;
+
+    if ( intKeyCode == KEY_RIGHT)
+    {
+	alert("Hello !");d
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	return false;
+    }
+    if (intKeyCode == KEY_LEFT )
+    {
+	alert("Hello !");d
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	return false;
+    }
+    if ( intKeyCode == KEY_UP)
+    {
+	alert("Hello !");d
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	return false;
+    }
+    if ( intKeyCode == KEY_DOWN)
+    {
+	alert("Hello !");d
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	return false;
+    }
 }
