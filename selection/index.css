@@ -1,7 +1,7 @@
-#MenuTop {
+.TOC {
   padding: 2em;
   padding-top: 1em;
-      padding-left: 13%;
+  padding-left: 13%;
   flex-direction: column;
 }
 
