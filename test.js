@@ -11,7 +11,7 @@ function f1() {
     var childLength = childNode.length;
     var childPart;
 
-    for(var i = 2; i < childLength; i++) {
+    for(var i = 2; i < childLength; i++) {
         if(childNode[i].nodeType === 1) {
             childPart = f2(childNode[i], newBody, newBody);
             if (newBody !== childPart) {
@@ -93,4 +93,5 @@ function f5() {
     my_script = document.createElement("SCRIPT");
     my_script.setAttribute("src", "./selection/Document.js");
     document.body.appendChild(my_script);
+    selection();
 }
