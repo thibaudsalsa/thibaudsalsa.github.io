@@ -34,6 +34,8 @@ function f1() {
     generateTOC(myToc);
     myToc.setAttribute("class", "TOC");
     document.body.insertBefore(myToc, document.body.firstElementChild);
+    console.log(window.speechSynthesys);
+    console.log(window.speechSynthesys.getVoices());
 }
 
 //Parsing de l'élément actuel
