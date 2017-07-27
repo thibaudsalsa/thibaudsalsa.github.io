@@ -218,7 +218,7 @@ function applyKey (_event_){
 		childNode[i].className = 'nop';
 	}
         for (;i < childNode.length; i--)
-        {
+            {
             if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] < current_title)
             {
 		childNode[temp].className = 'nop';
@@ -239,10 +239,6 @@ function applyKey (_event_){
 		}
                 break;
             }
-	    if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] > current_title)
-	    {
-		break;
-	    }
         }
 	}
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
