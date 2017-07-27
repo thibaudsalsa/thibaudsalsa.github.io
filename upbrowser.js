@@ -34,10 +34,10 @@ function f1() {
     generateTOC(myToc);
     myToc.setAttribute("class", "TOC");
     document.body.insertBefore(myToc, document.body.firstElementChild);
-    let synth = window.speechSynthesis;
+    var synth = window.speechSynthesis;
     console.log(synth);
-    let pwet = synth.getVoices();
-    console.log(pwet);
+    var voices = synth.getVoices();
+    console.log(voices);
 }
 
 //Parsing de l'élément actuel
