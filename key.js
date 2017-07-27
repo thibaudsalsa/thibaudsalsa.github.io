@@ -239,7 +239,7 @@ function applyKey (_event_){
 		}
                 break;
             }
-	    if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] >= current_title)
+	    if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] > current_title)
 	    {
 		break;
 	    }
@@ -283,7 +283,7 @@ function applyKey (_event_){
 		}
                 break;
             }
-	    if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] <= current_title)
+	    if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] < current_title)
 	    {
 		break;
 	    }
