@@ -34,6 +34,7 @@ function f1() {
     generateTOC(myToc);
     myToc.setAttribute("class", "TOC");
     document.body.insertBefore(myToc, document.body.firstElementChild);
+    
     var synth = window.speechSynthesis;
     console.log(synth);
     var voices = synth.getVoices();
@@ -122,6 +123,11 @@ function f5() {
     var my_script = document.createElement("SCRIPT");
     my_script.setAttribute("src", "./key.js");
     document.body.appendChild(my_script);
+}
+
+function back()
+{
+    console.log('poulet');
 }
 
 /*

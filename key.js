@@ -54,7 +54,7 @@ KEY_PF8		= 119;
 
 REMAP_KEY_T	= 5019;
 
-
+var glob = 0;
 function checkEventObj ( _event_ ){
 	// verifions si le navigateur est IE
 	if ( window.event )
@@ -287,5 +287,31 @@ function applyKey (_event_){
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
 	return false;
+    }
+
+    if (intKeyCode == KEY_ENTER)
+    {
+	if (glob === 0)
+	{
+	    document.bgColor="#E0CDA9";
+	    glob = 1;
+	}
+	else if (glob === 1)
+	{
+	    document.bgColor="#D2CAEC";
+	    glob = 2;
+	}
+	else if (glob === 2)
+	{
+	    document.bgColor="#000000";
+	    document.body.style.color = '#FFFFFF';
+	    glob = 3;
+	}
+	else if (glob === 3)
+	{
+	    document.bgColor="#FFFFFF";
+	    document.body.style.color = '#000000';
+	    glob = 0;
+	}
     }
 }
