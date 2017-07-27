@@ -116,17 +116,17 @@ function applyKey (_event_){
 
     if ( intKeyCode == KEY_UP)
     {
-	var temp = 0;
+	var temp = 1;
 	var childNode = document.body.childNodes;
-	for (var i = 0; 'selected' != childNode[i].className; i++)
+	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
         }
         temp = i;
-	if (i != 0)
+	if (i != 1)
 	{
 	    i--;
 	}
-	for(let tmp2=0; tmp2<childNode.length; tmp2++)
+	for(let tmp2=1; tmp2<childNode.length; tmp2++)
 	{
 	    if (childNode[i].className === 'selected')
 		childNode[i].className = 'nop';
