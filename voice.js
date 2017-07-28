@@ -20,8 +20,8 @@ for (let poulet = 0; poulet < navigator.userAgent.length; poulet++)
 	break;
     }
 }
-//if (currentVoice === undefined && nav === 1) {
-    //document.location.reload(true);
+if (currentVoice === undefined && nav === 1) {
+    document.location.reload(true);
 //}
 //else
     //alert("Recharge la page ou utilise un VRAI navigateur pour le TTS, bataw.");
