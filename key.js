@@ -322,6 +322,7 @@ function applyKey (_event_){
 	}
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
+        speakElement(document.getElementsByClassName('selected'));
 	return false;
     }
 
@@ -365,6 +366,7 @@ function applyKey (_event_){
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
+        speakElement(document.getElementsByClassName('selected'));
 	return false;
     }
     }

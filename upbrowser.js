@@ -4,6 +4,7 @@
 
 //Eléments gérés par le script
 var checkElem = ['BODY', 'P', 'H1', 'H2', 'H3', 'H4', 'H5', 'OL', 'UL','LI', 'A', 'IMG'];
+var mySynth = window.speechSynthesis;
 
 document.body.onload = f1();
 
@@ -34,7 +35,6 @@ function f1() {
     generateTOC(myToc);
     myToc.setAttribute("class", "TOC");
     document.body.insertBefore(myToc, document.body.firstElementChild);
-
 }
 
 //Parsing de l'élément actuel

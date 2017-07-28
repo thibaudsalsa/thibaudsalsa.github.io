@@ -3,7 +3,7 @@ var myVoices = mySynth.getVoices();
 var currentVoice;
 var nav = 0;
 for(var i = 0; i < myVoices.length; i++) {
-    if (myVoices[i].name === "french" || myVoices[i].name === "Google français") {
+    if (myVoices[i].lang === "fr-FR") {
         currentVoice = i;
         speakElement(document.getElementsByClassName('selected'));
         break;
