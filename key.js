@@ -54,6 +54,7 @@ KEY_PF8		= 119;
 
 REMAP_KEY_T	= 5019;
 
+var size = 0;
 var glob = 0;
 function checkEventObj ( _event_ ){
 	// verifions si le navigateur est IE
@@ -71,8 +72,82 @@ function applyKey (_event_){
     var intAltKey = winObj.altKey;
     var intCtrlKey = winObj.ctrlKey;
 
-    if ( intKeyCode == KEY_RIGHT)
+    if (intKeyCode == KEY_END)
     {
+	var x = document.getElementsByClassName("selected");
+	size = size - 1;
+	for (var i = 0; i < x.length; i++)
+	{
+	    if (x[i].nodeName[0] === "H")
+	    {
+		if (x[i].nodeName[1] === "1")
+		    x[i].style.fontSize=36+size+"px";
+		else if (x[i].nodeName[1] === "2")
+		    x[i].style.fontSize=24+size+"px";
+		else if (x[i].nodeName[1] === "3")
+		    x[i].style.fontSize=21+size+"px";
+		else if (x[i].nodeName[1] === "4")
+		    x[i].style.fontSize=18+size+"px";
+		else if (x[i].nodeName[1] === "5")
+		    x[i].style.fontSize=16+size+"px";
+	    }
+	    else
+		x[i].style.fontSize=16+size+"px";
+	}
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	return false;
+    }
+        if (intKeyCode == KEY_BEGIN)
+    {
+	var x = document.getElementsByClassName("selected");
+	size = size + 1;
+	for (var i = 0; i < x.length; i++)
+	{
+	    if (x[i].nodeName[0] === "H")
+	    {
+		if (x[i].nodeName[1] === "1")
+		    x[i].style.fontSize=36+size+"px";
+		else if (x[i].nodeName[1] === "2")
+		    x[i].style.fontSize=24+size+"px";
+		else if (x[i].nodeName[1] === "3")
+		    x[i].style.fontSize=21+size+"px";
+		else if (x[i].nodeName[1] === "4")
+		    x[i].style.fontSize=18+size+"px";
+		else if (x[i].nodeName[1] === "5")
+		    x[i].style.fontSize=16+size+"px";
+	    }
+	    else
+		x[i].style.fontSize=16+size+"px";
+	}
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	return false;
+    }
+    else
+    {
+	var x = document.getElementsByClassName("selected");
+	size = 0;
+	for (var i = 0; i < x.length; i++)
+	{
+	    if (x[i].nodeName[0] === "H")
+	    {
+		if (x[i].nodeName[1] === "1")
+		    x[i].style.fontSize=36+size+"px";
+		else if (x[i].nodeName[1] === "2")
+		    x[i].style.fontSize=24+size+"px";
+		else if (x[i].nodeName[1] === "3")
+		    x[i].style.fontSize=21+size+"px";
+		else if (x[i].nodeName[1] === "4")
+		    x[i].style.fontSize=18+size+"px";
+		else
+		    x[i].style.fontSize=16+size+"px";
+	    }
+	    else
+		x[i].style.fontSize=16+size+"px";
+	}
+	if ( intKeyCode == KEY_RIGHT)
+	{
 	var childNode = document.body.childNodes;
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
@@ -288,6 +363,7 @@ function applyKey (_event_){
 	winObj.returnValue = false;
 	return false;
     }
+    }
 
     if (intKeyCode == KEY_ENTER)
     {
@@ -313,5 +389,8 @@ function applyKey (_event_){
 	    document.body.style.color = '#000000';
 	    glob = 0;
 	}
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	return false;
     }
 }

@@ -36,27 +36,19 @@ z-index: -1; }
   margin-left: 12%;
   padding: 2em; }
 
-.selected {
+.selected
+{
     background-color: #c0c0c0;
-    color: #ff0000; }
-
-.SizeList select {
     color: #ff0000;
-  padding: 1em;
-  background: white; }
+}
 
+.SizeList select
+{
+    color: #ff0000;
+    padding: 1em;
+    background: white;
+}
 
-.PaletteList {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
- }
-
-.Palette {
-  cursor: pointer; }
-
-.Active {
-  border: solid 0.3em black; }
 
 .FontList select {
   color: #ff0000;
