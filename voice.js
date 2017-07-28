@@ -34,7 +34,6 @@ function speakElement(myText) {
         mySynth.cancel();
     }
     myUtterance.voice = myVoices[currentVoice];
-    console.log(myVoices);
     myUtterance.lang = myVoices[currentVoice].lang;
     myUtterance.rate = 0.8;
     mySynth.speak(myUtterance);
