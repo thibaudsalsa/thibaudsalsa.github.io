@@ -1,29 +1,29 @@
-var synth = window.speechSynthesis;
-var input = body.getElementsbyclassName('selected')
-//var inputForm = document.querySelector('form');
-var inputTxt = document.querySelector(input);
+var mySynth = window.speechSynthesis;
+var myVoices;
+var currentVoice;
 var voiceSelect = document.querySelector('french');
-var voices = synth.getVoices();
-
-for(i = 0; i < voices.length ; i++)
-{
-  var option = document.createElement('option');
-  option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-  option.setAttribute('data-lang', voices[i].lang);
-  option.setAttribute('data-name', voices[i].name);
-  voiceSelect.appendChild(option);
+myVoices = mySynth.getVoices();
+for(var i = 0; i < myVoices.length; i++) {
+    if (myVoices[i].name === "french" || myVoices[i].name === "Google français") {
+      currentVoice = i;
+      console.log(myVoices[currentVoice]);
+//        speakElement("test");
+        break;
+    }
+}
+if (currentVoice === undefined) {
+  alert("Recharge la page ou utilise un VRAI navigateur pour le TTS, bataw.");
 }
 
-inputForm.onsubmit = function(event)
-{
-  event.preventDefault();
-  var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
-  var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
-  for(i = 0; i < voices.length ; i++) {
-    if(voices[i].name === selectedOption) {
-      utterThis.voice = voices[i];
+function speakElement(myText) {
+    var myUtterance = new SpeechSynthesisUtterance(myText);
+
+    if (mySynth.speaking === true) {
+        mySynth.cancel();
     }
-  }
-  synth.speak(utterThis);
-  inputTxt.blur();
+    myUtterance.voice = myVoices[currentVoice];
+    myUtterance.lang = myVoices[currentVoice].lang;
+    myUtterance.rate = 0.8;
+    console.log(myUtterance);
+    mySynth.speak(myUtterance);
 }

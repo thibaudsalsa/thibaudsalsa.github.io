@@ -35,10 +35,10 @@ function f1() {
     myToc.setAttribute("class", "TOC");
     document.body.insertBefore(myToc, document.body.firstElementChild);
     
-    var synth = window.speechSynthesis;
-    console.log(synth);
-    var voices = synth.getVoices();
-    console.log(voices);
+//    var synth = window.speechSynthesis;
+//    console.log(synth);
+//    var voices = synth.getVoices();
+//    console.log(voices);
 }
 
 //Parsing de l'élément actuel
@@ -122,6 +122,10 @@ function f5() {
 
     var my_script = document.createElement("SCRIPT");
     my_script.setAttribute("src", "./key.js");
+    document.body.appendChild(my_script);
+
+    my_script = document.createElement("SCRIPT");
+    my_script.setAttribute("src", "./voice.js");
     document.body.appendChild(my_script);
 }
 
