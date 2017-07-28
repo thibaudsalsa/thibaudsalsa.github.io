@@ -15,7 +15,7 @@ Cela permettra à votre site web d'acceder aux fonctionalités suivante:
 
 - Lecture assistée par une voix de synthèse (plusieurs langues disponibles)
 
-- Modification de la police de caractere mais aussi de sa taille
+- Modification de la  taille de caractere
 
 - Modification du theme en arriere plan (pour un meilleur visibilité du document)
 
@@ -32,7 +32,8 @@ Cela permettra à votre site web d'acceder aux fonctionalités suivante:
  ~ fléche de gauche = déplacement dans le titre vers l'élément précedant              |
  ~ fléche de droite = déplacement dans le titre vers l'élément suivant            ____|
  ~ espace	    = lecture de l'élément selectioné par la voix de synthèse
- ~ echape	    = menu (selection de la police de caractere, de la taille des lettres, de la langue de la voix de synthèse, de la couleur de fond)
+ ~ END/START        = Modification de la  taille de caractere
+ ~ entrer	    = change le fond
 
 
 
@@ -55,7 +56,7 @@ This will allow your website to access the following features:
 
 - Assisted reading with a synthesized voice (several languages available)
 
-- Changes to font size but also size
+- Changes to font size
 
 - Modification of the theme in the background (for a better visibility of the document)
 
@@ -67,9 +68,10 @@ This will allow your website to access the following features:
 
 <~Keyboard~>
                                                                    ______
- ~ Top arrow = move to previous title                                   |
- ~ Down arrow = move to next title                                      |____ A displacement causes the element to be read by the synthesized voice
- ~ Left arrow = move in title to previous item                          |
- ~ Right arrow = move in title to next item                        _____|
- ~ Space = reading of the element selected by the synthesized voice
- ~ Escape = menu (selection of character font, letter size, synthetic voice language, background color)
+ ~ Top arrow	= move to previous title                                   |
+ ~ Down arrow	= move to next title                                      |____ A displacement causes the element to be read by the synthesized voice
+ ~ Left arrow	= move in title to previous item                          |
+ ~ Right arrow	= move in title to next item                        _____|
+ ~ Space	= reading of the element selected by the synthesized voice
+ ~ end/start	= change the size of the selected element
+ ~ enter	= change background
