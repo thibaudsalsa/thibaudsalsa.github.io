@@ -149,9 +149,9 @@ function applyKey (_event_){
 	if ( intKeyCode == KEY_RIGHT)
 	{
 	var childNode = document.body.childNodes;
-        for (var i = 0; 'selected' != childNode[i].className; i++)
-        {
-        }
+	for (var i = 0; 'selected' != childNode[i].className; i++)
+	{
+	}
         if (i+1 < childNode.length-1 && childNode[i + 1].nodeName[0] !== 'H')
         {
 	    childNode[i].className = '';
@@ -165,7 +165,8 @@ function applyKey (_event_){
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
-	return false;
+        speakElement(document.getElementsByClassName('selected'));
+        return false;
     }
 
     if (intKeyCode == KEY_LEFT )
@@ -186,6 +187,7 @@ function applyKey (_event_){
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
+        speakElement(document.getElementsByClassName('selected'));
 	return false;
     }
 
@@ -231,6 +233,7 @@ function applyKey (_event_){
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
+        speakElement(document.getElementsByClassName('selected'));
 	return false;
     }
 
@@ -269,6 +272,7 @@ function applyKey (_event_){
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
+        speakElement(document.getElementsByClassName('selected'));
 	return false;
     }
 
