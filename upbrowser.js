@@ -27,10 +27,10 @@ function f1() {
             }
         }
         //La node est un texte -> ajout
-        else if (childNode[i].nodeType === 3) {
-            childPart = document.createTextNode(childNode[i].nodeValue);
-            bodyPart.appendChild(childPart);
-        }
+        //else if (childNode[i].nodeType === 3) {
+        //    childPart = document.createTextNode(childNode[i].nodeValue);
+        //    bodyPart.appendChild(childPart);
+        //}
     }
     //remplace le body atuel par le nouveau body
     newBody.firstElementChild.setAttribute("class", "selected");
