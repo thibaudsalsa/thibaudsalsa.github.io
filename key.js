@@ -152,6 +152,10 @@ function applyKey (_event_){
 	for (var i = 0; 'selected' != childNode[i].className; i++)
 	{
 	}
+	    if (childNode[i].id === 'selected')
+	    {
+		childNode[i] = '';
+	    }
         if (i+1 < childNode.length-1 && childNode[i + 1].nodeName[0] !== 'H')
             {
 	    if (childNode[i].id === 'selected')
@@ -181,6 +185,10 @@ function applyKey (_event_){
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
+		if (childNode[i].id === 'selected')
+	    {
+		childNode[i] = '';
+	    }
         if (i-1 >= 0 && childNode[i-1].nodeName[0] !== 'H' && childNode[i].nodeName[0] !== 'H')
         {
 	    if (childNode[i].id === 'selected')
@@ -208,18 +216,14 @@ function applyKey (_event_){
 	var temp = 1;
 	var poulet = 0;
 	var childNode = document.body.childNodes;
-	while (poulet < childNode.length)
-	{
-	    if (childNode[poulet].id === 'selected')
-	    {
-		childNode[poulet] = '';
-	    }
-	    poulet = poulet + 1;
-	}
 	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
         }
         temp = i;
+	if (childNode[i].id === 'selected')
+	    {
+		childNode[i].id = '';
+	    }
 	if (i != 1)
 	{
 	    i--;
@@ -264,20 +268,15 @@ function applyKey (_event_){
 	var found = false
         var temp = 0;
 	var poulet;
-	var jambon = 0;
         var childNode = document.body.childNodes;
-	while (jambon < childNode.length)
-	{
-	    if (childNode[jambon].id === 'selected')
-	    {
-		childNode[jambon].id = '';
-	    }
-	    jambon = jambon + 1;
-	}
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
 	temp = i;
+	if (childNode[i].id === 'selected')
+	    {
+		childNode[i].id = '';
+	    }
         i++;
         for (;i < childNode.length; i++)
         {
