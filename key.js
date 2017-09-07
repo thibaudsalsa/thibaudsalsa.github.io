@@ -154,7 +154,7 @@ function applyKey (_event_){
 	}
         if (i+1 < childNode.length-1 && childNode[i + 1].nodeName[0] !== 'H')
             {
-		if (childNode[i].id === 'selected')
+	    if (childNode[i].id === 'selected')
 	    {
 		childNode[i].id = '';
 	    }
