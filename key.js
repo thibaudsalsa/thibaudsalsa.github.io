@@ -204,7 +204,6 @@ function applyKey (_event_){
 	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
         }
-	childNode[i].id = '';
         temp = i;
 	if (i != 1)
 	{
@@ -219,8 +218,7 @@ function applyKey (_event_){
         {
             if (childNode[i].nodeName[0] === 'H')
             {
-				childNode[i].id = 'selected';
-		document.getElementById("selected").scrollIntoView();
+		document.getElementById(document.body.childNode[i].id).scrollIntoView();
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
@@ -250,19 +248,18 @@ function applyKey (_event_){
     {
 	var found = false
         var temp = 0;
+	var poulet;
         var childNode = document.body.childNodes;
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
-	childNode[i].id = '';
 	temp = i;
         i++;
         for (;i < childNode.length; i++)
         {
             if (childNode[i].nodeName[0] === 'H')
             {
-		childNode[i].id = 'selected';
-		document.getElementById("selected").scrollIntoView();
+		document.getElementById(document.body.childNode[i].id).scrollIntoView();
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
