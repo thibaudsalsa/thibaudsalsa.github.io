@@ -12,6 +12,7 @@ function selection()
 	{
 	    childNode[i + 1].nodeid = 'selected';
 	    childNode[i].nodeid = '';
+	    document.getElementByClass("selected").focus();
 	}
     })
 
@@ -26,6 +27,7 @@ function selection()
 	{
 	    childNode[i - 1].nodeid = 'selected';
 	    childNode[i].nodeid = '';
+	    document.getElementByClass("selected").focus();
 	}
     })
 
