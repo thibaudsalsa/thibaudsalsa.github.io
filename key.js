@@ -153,9 +153,12 @@ function applyKey (_event_){
 	{
 	}
         if (i+1 < childNode.length-1 && childNode[i + 1].nodeName[0] !== 'H')
-        {
+            {
+		if (childNode[i].id === 'selected')
+	    {
+		childNode[i].id = '';
+	    }
 	    childNode[i].className = '';
-	    childNode[i].id = '';
 	    childNode[i + 1].id = 'selected';
             childNode[i + 1].className = 'selected';
 	    i = i + 2;
@@ -180,8 +183,11 @@ function applyKey (_event_){
         }
         if (i-1 >= 0 && childNode[i-1].nodeName[0] !== 'H' && childNode[i].nodeName[0] !== 'H')
         {
-	    childNode[i].className = '';
-	    childNode[i].id = '';
+	    if (childNode[i].id === 'selected')
+	    {
+		childNode[i].id = '';
+	    }
+		childNode[i].className = '';
             childNode[i - 1].className = 'selected';
 	    childNode[i - 1].id = 'selected';
 	    while (childNode[i].className === 'selected')
@@ -218,7 +224,7 @@ function applyKey (_event_){
         {
             if (childNode[i].nodeName[0] === 'H')
             {
-		document.getElementById(document.body.childNode[i].id).scrollIntoView();
+		document.getElementById(childNode[i].id).scrollIntoView();
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
@@ -259,7 +265,7 @@ function applyKey (_event_){
         {
             if (childNode[i].nodeName[0] === 'H')
             {
-		document.getElementById(document.body.childNode[i].id).scrollIntoView();
+		document.getElementById(childNode[i].id).scrollIntoView();
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
