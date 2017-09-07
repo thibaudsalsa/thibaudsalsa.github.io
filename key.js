@@ -155,6 +155,8 @@ function applyKey (_event_){
         if (i+1 < childNode.length-1 && childNode[i + 1].nodeName[0] !== 'H')
         {
 	    childNode[i].className = '';
+	    childNode[i].id = '';
+	    childNode[i + 1].id = 'selected';
             childNode[i + 1].className = 'selected';
 	    i = i + 2;
 	    while (i < childNode.length && childNode[i].className === 'selected')
@@ -163,8 +165,9 @@ function applyKey (_event_){
 		i = i + 1;
 	    }
         }
-	winObj.keyCode = intKeyCode = REMAP_KEY_T;
-	winObj.returnValue = false;
+	    winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	    winObj.returnValue = false;
+	    document.getElementById('selected').scrollIntoView();
         speakElement(document.getElementsByClassName('selected'));
         return false;
     }
@@ -178,13 +181,16 @@ function applyKey (_event_){
         if (i-1 >= 0 && childNode[i-1].nodeName[0] !== 'H' && childNode[i].nodeName[0] !== 'H')
         {
 	    childNode[i].className = '';
+	    childNode[i].id = '';
             childNode[i - 1].className = 'selected';
+	    childNode[i - 1].id = 'selected';
 	    while (childNode[i].className === 'selected')
 	    {
 		childNode[i].className = ''
 		i = i + 1;
 	    }
         }
+	document.getElementById('selected').scrollIntoView();
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
         speakElement(document.getElementsByClassName('selected'));
@@ -198,6 +204,7 @@ function applyKey (_event_){
 	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
         }
+	childNode[i].id = '';
         temp = i;
 	if (i != 1)
 	{
@@ -212,6 +219,8 @@ function applyKey (_event_){
         {
             if (childNode[i].nodeName[0] === 'H')
             {
+				childNode[i].id = 'selected';
+		document.getElementById("selected").scrollIntoView();
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
@@ -245,12 +254,15 @@ function applyKey (_event_){
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
+	childNode[i].id = '';
 	temp = i;
         i++;
         for (;i < childNode.length; i++)
         {
             if (childNode[i].nodeName[0] === 'H')
             {
+		childNode[i].id = 'selected';
+		document.getElementById("selected").scrollIntoView();
 		childNode[temp].className = 'nop';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
