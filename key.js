@@ -156,7 +156,7 @@ function applyKey (_event_){
 	    {
 		childNode[i] = '';
 	    }
-        if (i+1 < childNode.length-1 && childNode[i + 1].nodeName[0] !== 'H')
+        if (i+1 < childNode.length-2 && childNode[i + 1].nodeName[0] !== 'H')
             {
 	    if (childNode[i].id === 'selected')
 	    {
@@ -166,7 +166,7 @@ function applyKey (_event_){
 	    childNode[i + 1].id = 'selected';
             childNode[i + 1].className = 'selected';
 	    i = i + 2;
-	    while (i < childNode.length && childNode[i].className === 'selected')
+		while (i < childNode.length && childNode[i].className === 'selected')
 	    {
 		childNode[i].className = ''
 		i = i + 1;
@@ -175,7 +175,7 @@ function applyKey (_event_){
 	    winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	    winObj.returnValue = false;
 	    document.getElementById('selected').scrollIntoView();
-        speakElement(document.getElementsByClassName('selected'));
+            speakElement(document.getElementsByClassName('selected'));
         return false;
     }
 
