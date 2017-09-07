@@ -1,5 +1,5 @@
 /**
- * Created by Dondeo on 7/13/17.
+ * Created by Robin Chatain on 7/13/17.
  */
 
 //Eléments gérés par le script
@@ -25,6 +25,11 @@ function f1() {
             if (newBody !== childPart) {
                 newBody.appendChild(childPart);
             }
+        }
+        //La node est un texte -> ajout
+        else if (childNode[i].nodeType === 3) {
+            childPart = document.createTextNode(childNode[i].nodeValue);
+            bodyPart.appendChild(childPart);
         }
     }
     //remplace le body atuel par le nouveau body
@@ -123,11 +128,6 @@ function f5() {
     my_script = document.createElement("SCRIPT");
     my_script.setAttribute("src", "./voice.js");
     document.body.appendChild(my_script);
-}
-
-function back()
-{
-    console.log('poulet');
 }
 
 /*
