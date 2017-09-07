@@ -206,7 +206,16 @@ function applyKey (_event_){
     if ( intKeyCode == KEY_UP)
     {
 	var temp = 1;
+	var poulet = 0;
 	var childNode = document.body.childNodes;
+	while (poulet < childNode.length)
+	{
+	    if (childNode[poulet].id === 'selected')
+	    {
+		childNode[poulet] = '';
+	    }
+	    poulet = poulet + 1;
+	}
 	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
         }
@@ -255,7 +264,16 @@ function applyKey (_event_){
 	var found = false
         var temp = 0;
 	var poulet;
+	var jambon = 0;
         var childNode = document.body.childNodes;
+	while (jambon < childNode.length)
+	{
+	    if (childNode[jambon].id === 'selected')
+	    {
+		childNode[jambon].id = '';
+	    }
+	    jambon = jambon + 1;
+	}
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
