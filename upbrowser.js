@@ -17,7 +17,7 @@ function f1() {
     var myToc = document.createElement("DIV");
 
     //Parcours du body actuel
-    for(var i = 2; i < childLength; i++) { // Auto: i = 0 ; Button: i = 2
+    for(var i = 0; i < childLength; i++) { // Auto: i = 0 ; Button: i = 2
         //Le node ciblée est un élément -> parsing
         if(childNode[i].nodeType === 1) {
             childPart = f2(childNode[i], newBody, newBody);
