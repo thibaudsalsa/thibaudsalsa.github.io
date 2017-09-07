@@ -315,6 +315,10 @@ function applyKey (_event_){
 	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
         }
+	if (childNode[i].id === 'selected')
+	    {
+		childNode[i].id = '';
+	    }
 	if (i != 0 && i != 1)
 	{
         temp = i;
@@ -341,6 +345,7 @@ function applyKey (_event_){
 		    temp = temp + 1;
 		}
                 childNode[i].className = 'selected';
+		document.getElementById(childNode[i].id).scrollIntoView();
 		i = i + 1;
 		while (i < childNode.length && childNode[i].nodeName[0] !== 'H')
 		{
@@ -366,6 +371,10 @@ function applyKey (_event_){
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
+	if (childNode[i].id === 'selected')
+	    {
+		childNode[i].id = '';
+	    }
 	temp = i;
 	var current_title = childNode[i].nodeName[1];
         i++;
@@ -382,6 +391,7 @@ function applyKey (_event_){
 		    temp = temp + 1;
 		}
                 childNode[i].className = 'selected';
+		document.getElementById(childNode[i].id).scrollIntoView();
 		i = i + 1;
 		while (i < childNode.length && childNode[i].nodeName[0] !== 'H')
 		{
