@@ -442,7 +442,7 @@ function applyKey (_event_){
 	return false;
     }
 
-    if (intKeyCoke == KEY_SPACE)
+    if (intKeyCode == KEY_SPACE)
     {
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
