@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72bc9594-97a1-41c6-87c1-884d43efb5d8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/upbrowser.js" afterPath="$PROJECT_DIR$/upbrowser.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,28 +17,55 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="upbrowser.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/upbrowser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="61" lean-forward="false" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="upbrowser.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/upbrowser.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="561">
+                  <caret line="186" column="27" lean-forward="false" selection-start-line="186" selection-start-column="27" selection-end-line="186" selection-end-column="27" />
+                  <folding>
+                    <element signature="n#!!block;n#f1#0" expanded="false" />
+                    <element signature="n#!!block;n#f2#0" expanded="false" />
+                    <element signature="n#!!block;n#f3#0" expanded="false" />
+                    <element signature="n#!!block;n#f4#0" expanded="false" />
+                    <element signature="n#!!block;n#f5#0" expanded="false" />
+                    <element signature="n#!!block;n#createLink#0" expanded="false" />
+                    <element signature="n#!!block;n#generateTOC#0" expanded="false" />
+                    <element signature="n#!!block;n#setSelectionTOC#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="850">
+                  <caret line="50" column="61" lean-forward="false" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="key.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/key.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="629">
+                  <caret line="297" column="0" lean-forward="false" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -45,6 +73,7 @@
       <find>body</find>
       <find>createL</find>
       <find>h2item</find>
+      <find>setSel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -64,8 +93,8 @@
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/t-backup.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/key.js" />
         <option value="$PROJECT_DIR$/voice.js" />
+        <option value="$PROJECT_DIR$/key.js" />
         <option value="$PROJECT_DIR$/upbrowser.js" />
       </list>
     </option>
@@ -242,7 +271,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84441000" />
+    <option name="totallyTimeSpent" value="103655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="31" width="1926" height="1003" extended-state="6" />
@@ -283,7 +312,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -326,6 +355,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="78" column="26" lean-forward="false" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -454,6 +484,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -472,13 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/key.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="347" column="0" lean-forward="false" selection-start-line="347" selection-start-column="0" selection-end-line="347" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -487,11 +511,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/key.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="297" column="0" lean-forward="false" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/upbrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="561">
+          <caret line="186" column="27" lean-forward="false" selection-start-line="186" selection-start-column="27" selection-end-line="186" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!block;n#f1#0" expanded="false" />
+            <element signature="n#!!block;n#f2#0" expanded="false" />
+            <element signature="n#!!block;n#f3#0" expanded="false" />
+            <element signature="n#!!block;n#f4#0" expanded="false" />
+            <element signature="n#!!block;n#f5#0" expanded="false" />
+            <element signature="n#!!block;n#createLink#0" expanded="false" />
+            <element signature="n#!!block;n#generateTOC#0" expanded="false" />
+            <element signature="n#!!block;n#setSelectionTOC#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
