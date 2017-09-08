@@ -57,6 +57,7 @@ REMAP_KEY_T	= 5019;
 var size = 0;
 var glob = 0;
 var glob_phrase = 1;
+var g_pos = -1;
 
 function checkEventObj ( _event_ ){
 	// verifions si le navigateur est IE
@@ -150,6 +151,9 @@ function applyKey (_event_){
 	    else
 		x[i].style.fontSize=16+size+"px";
 	}
+
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 	if ( intKeyCode == KEY_RIGHT)
 	{
 	    glob_phrase = 1;
@@ -179,11 +183,32 @@ function applyKey (_event_){
         }
 	    winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	    winObj.returnValue = false;
-	    document.getElementById('selected').scrollIntoView();
+	    let view = document.getElementById('selected');
+	    if (view != null)
+	    {
+		view.scrollIntoView();
+	    }
             speakElement(document.getElementsByClassName('selected'));
-        return false;
+
+	    let pos = 0;
+	    for (; 'selected' != childNode[pos].className; pos++)
+	    {
+	    }
+	    if (g_pos === pos)
+	    {
+		speakPhrase("fin de l'element");
+	    }
+	    else
+	    {
+		speakElement(document.getElementsByClassName('selected'));
+	    }
+	    g_pos = pos;
+	return false;
+	    
     }
 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
     if (intKeyCode == KEY_LEFT )
 	{
 	    glob_phrase = 1;
@@ -210,13 +235,33 @@ function applyKey (_event_){
 		i = i + 1;
 	    }
         }
-	document.getElementById('selected').scrollIntoView();
+	    let view = document.getElementById('selected');
+	    if (view != null)
+	    {
+		view.scrollIntoView();
+	    }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
-        speakElement(document.getElementsByClassName('selected'));
+            speakElement(document.getElementsByClassName('selected'));
+
+	    let pos = 0;
+	    for (; 'selected' != childNode[pos].className; pos++)
+	    {
+	    }
+	    if (g_pos === pos)
+	    {
+		speakPhrase("debut de l'element");
+	    }
+	    else
+	    {
+		speakElement(document.getElementsByClassName('selected'));
+	    }
+	    g_pos = pos;
 	return false;
     }
 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
     if ( intKeyCode == KEY_UP)
 	{
 	    glob_phrase = 1;
@@ -266,10 +311,25 @@ function applyKey (_event_){
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
-        speakElement(document.getElementsByClassName('selected'));
+
+	    let pos = 0;
+	    for (; 'selected' != childNode[pos].className; pos++)
+	    {
+	    }
+	    if (g_pos === pos)
+	    {
+		speakPhrase("debut de l'element");
+	    }
+	    else
+	    {
+		speakElement(document.getElementsByClassName('selected'));
+	    }
+	    g_pos = pos;
 	return false;
     }
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
     if ( intKeyCode == KEY_DOWN)
 	{
 	    glob_phrase = 1;
@@ -310,12 +370,27 @@ function applyKey (_event_){
                 break;
             }
         }
-	winObj.keyCode = intKeyCode = REMAP_KEY_T;
-	winObj.returnValue = false;
-        speakElement(document.getElementsByClassName('selected'));
+	    winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	    winObj.returnValue = false;
+
+	    let pos = 0;
+	    for (; 'selected' != childNode[pos].className; pos++)
+	    {
+	    }
+	    if (g_pos === pos)
+	    {
+		speakPhrase("fin de l'element");
+	    }
+	    else
+	    {
+		speakElement(document.getElementsByClassName('selected'));
+	    }
+	    g_pos = pos;
 	return false;
     }
 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
     if ( intKeyCode == KEY_L)
 	{
 	    glob_phrase = 1;
@@ -526,6 +601,7 @@ function applyKey (_event_){
 	speakPhrase(txt);
 	return false;
     }
+	
 }
 
 function phrase(myText) {
