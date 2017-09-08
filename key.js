@@ -443,7 +443,19 @@ function applyKey (_event_){
 	}
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
-        speakElement(document.getElementsByClassName('selected'));
+	    	    let pos = 0;
+	    for (; 'selected' != childNode[pos].className; pos++)
+	    {
+	    }
+	    if (g_pos === pos)
+	    {
+		speakPhrase("debut de l'element");
+	    }
+	    else
+	    {
+		speakElement(document.getElementsByClassName('selected'));
+	    }
+	    g_pos = pos;
 	return false;
     }
 
@@ -492,8 +504,20 @@ function applyKey (_event_){
 	    }
         }
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
-	winObj.returnValue = false;
-        speakElement(document.getElementsByClassName('selected'));
+	    winObj.returnValue = false;
+	    	    let pos = 0;
+	    for (; 'selected' != childNode[pos].className; pos++)
+	    {
+	    }
+	    if (g_pos === pos)
+	    {
+		speakPhrase("fin de l'element");
+	    }
+	    else
+	    {
+		speakElement(document.getElementsByClassName('selected'));
+	    }
+	    g_pos = pos;
 	return false;
     }
     }
