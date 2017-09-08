@@ -56,6 +56,8 @@ REMAP_KEY_T	= 5019;
 
 var size = 0;
 var glob = 0;
+var glob_phrase = 1;
+
 function checkEventObj ( _event_ ){
 	// verifions si le navigateur est IE
 	if ( window.event )
@@ -74,6 +76,7 @@ function applyKey (_event_){
 
     if (intKeyCode == KEY_END)
     {
+	glob_phrase = 1;
 	var x = document.getElementsByClassName("selected");
 	size = size - 1;
 	for (var i = 0; i < x.length; i++)
@@ -100,6 +103,7 @@ function applyKey (_event_){
     }
         if (intKeyCode == KEY_BEGIN)
     {
+	glob_phrase = 1;
 	var x = document.getElementsByClassName("selected");
 	size = size + 1;
 	for (var i = 0; i < x.length; i++)
@@ -148,6 +152,7 @@ function applyKey (_event_){
 	}
 	if ( intKeyCode == KEY_RIGHT)
 	{
+	    glob_phrase = 1;
 	var childNode = document.body.childNodes;
 	for (var i = 0; 'selected' != childNode[i].className; i++)
 	{
@@ -180,7 +185,8 @@ function applyKey (_event_){
     }
 
     if (intKeyCode == KEY_LEFT )
-    {
+	{
+	    glob_phrase = 1;
 	var childNode = document.body.childNodes;
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
@@ -212,7 +218,8 @@ function applyKey (_event_){
     }
 
     if ( intKeyCode == KEY_UP)
-    {
+	{
+	    glob_phrase = 1;
 	var temp = 1;
 	var poulet = 0;
 	var childNode = document.body.childNodes;
@@ -264,7 +271,8 @@ function applyKey (_event_){
     }
 
     if ( intKeyCode == KEY_DOWN)
-    {
+	{
+	    glob_phrase = 1;
 	var found = false
         var temp = 0;
 	var poulet;
@@ -309,7 +317,8 @@ function applyKey (_event_){
     }
 
     if ( intKeyCode == KEY_L)
-    {
+	{
+	    glob_phrase = 1;
 	var temp = 1;
 	var childNode = document.body.childNodes;
 	for (var i = 1; 'selected' != childNode[i].className; i++)
@@ -364,7 +373,8 @@ function applyKey (_event_){
     }
 
     if (intKeyCode == KEY_M)
-    {
+	{
+	    glob_phrase = 1;
 	var found = false
         var temp = 0;
         var childNode = document.body.childNodes;
@@ -449,4 +459,84 @@ function applyKey (_event_){
 	speakElement(document.getElementsByClassName('selected'));
 	return false;
     }
+
+    if (intKeyCode == KEY_P)
+    {
+	var tmp = phrase(document.getElementsByClassName('selected'));
+	var txt = "";
+	if (glob_phrase >= tmp.length)
+	{
+	    glob_phrase = 1;
+	}
+	if (glob_phrase === 1 && (tmp[glob_phrase] <= '9' && tmp[glob_phrase] >= '0'))
+	{
+	    while (((tmp[glob_phrase-1] != '.' && tmp[glob_phrase-1] != '!' && tmp[glob_phrase-1] != '?') || tmp[glob_phrase] != ' ') && glob_phrase < tmp.length)
+	{
+	    console.log(tmp[glob_phrase]);
+	    txt += tmp[glob_phrase];
+	    glob_phrase = glob_phrase + 1;	    
+	}
+	}
+	else
+	{
+	while (tmp[glob_phrase-1] != '.' && tmp[glob_phrase-1] != '!' && tmp[glob_phrase-1] != '?' && glob_phrase < tmp.length)
+	{
+	    console.log(tmp[glob_phrase]);
+	    txt += tmp[glob_phrase];
+	    glob_phrase = glob_phrase + 1;	    
+	}
+	}
+	glob_phrase = glob_phrase + 1;
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	speakPhrase(txt);
+	return false;
+    }
+
+        if (intKeyCode == KEY_W)
+    {
+	var tmp = phrase(document.getElementsByClassName('selected'));
+	var txt = "";
+	if (glob_phrase >= tmp.length)
+	{
+	    glob_phrase = 1;
+	}
+	if (glob_phrase === 1 && (tmp[glob_phrase] <= '9' && tmp[glob_phrase] >= '0'))
+	{
+	    while ((tmp[glob_phrase-1] != '.' || tmp[glob_phrase] != ' ') && glob_phrase < tmp.length)
+	{
+	    console.log(tmp[glob_phrase]);
+	    txt += tmp[glob_phrase];
+	    glob_phrase = glob_phrase + 1;	    
+	}
+	    glob_phrase++;
+	}
+	else
+	{
+	while (tmp[glob_phrase-1] != ','&& tmp[glob_phrase-1] != ';' && tmp[glob_phrase-1] != ' ' && glob_phrase < tmp.length)
+	{
+	    console.log(tmp[glob_phrase]);
+	    txt += tmp[glob_phrase];
+	    glob_phrase = glob_phrase + 1;	    
+	}
+	}
+	glob_phrase = glob_phrase + 1;
+	winObj.keyCode = intKeyCode = REMAP_KEY_T;
+	winObj.returnValue = false;
+	speakPhrase(txt);
+	return false;
+    }
+}
+
+function phrase(myText) {
+    var tts = "";
+    var textLength = myText.length;
+
+    for(var i = 0; i < textLength; i++) {
+	if (i !== 0) {
+	    tts += '.';
+	}
+	tts += ' ' + myText[i].innerText;
+    }
+    return (tts);
 }

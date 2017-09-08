@@ -50,3 +50,17 @@ function arrangeTextElement(myText) {
   }
   return (tts);
 }
+
+// lecture par phrase
+
+function speakPhrase(tts) {
+    var myUtterance = new SpeechSynthesisUtterance(tts);
+
+    if (mySynth.speaking === true) {
+	mySynth.cancel();
+    }
+    myUtterance.voice = myVoices[currentVoice];
+    myUtterance.lang = myVoices[currentVoice].lang;
+    myUtterance.rate = 0.8;
+    mySynth.speak(myUtterance);
+}
