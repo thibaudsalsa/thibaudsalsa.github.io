@@ -57,7 +57,7 @@ REMAP_KEY_T	= 5019;
 var size = 0;
 var glob = 0;
 var glob_phrase = 1;
-var g_pos = 0;
+var g_pos = 1;
 
 function checkEventObj ( _event_ ){
 	// verifions si le navigateur est IE
