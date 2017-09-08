@@ -26,11 +26,13 @@ function f1() {
                 newBody.appendChild(childPart);
             }
         }
-        //La node est un texte -> ajout
-        //else if (childNode[i].nodeType === 3) {
-        //    childPart = document.createTextNode(childNode[i].nodeValue);
-        //    bodyPart.appendChild(childPart);
-        //}
+        //La node est un texte -> suppression des espaces inutiles, ajout
+        else if (childNode[i].nodeType === 3) {
+            childPart = document.createTextNode(myTrim(childNode[i].nodeValue));
+            if (childPart.length > 0) {
+                newBody.appendChild(document.createElement("P")).appendChild(childPart);
+            }
+        }
     }
     //remplace le body atuel par le nouveau body
     newBody.firstElementChild.setAttribute("class", "selected");
@@ -41,6 +43,11 @@ function f1() {
     generateTOC(myToc);
     myToc.setAttribute("class", "TOC");
     document.body.insertBefore(myToc, document.body.firstElementChild);
+}
+
+//Fonction de suppression des espaces inutiles
+function myTrim(x) {
+    return x.replace(/^\s+|\s+$/gm,'');
 }
 
 //Parsing de l'élément actuel
@@ -104,10 +111,16 @@ function f4(bodyPart, myNode, newBody) {
                 bodyPart.appendChild(childPart);
             }
         }
-        //La node est un texte -> ajout
+        //La node est un texte -> suppression des espaces inutiles (?), ajout
         else if (childNode[i].nodeType === 3) {
-            childPart = document.createTextNode(childNode[i].nodeValue);
-            bodyPart.appendChild(childPart);
+            childPart = document.createTextNode(/*myTrim(*/childNode[i].nodeValue/*)*/);
+            //console.log(bodyPart);
+            if (bodyPart.nodeName === "BODY") {
+                bodyPart.appendChild(document.createElement("P")).appendChild(childPart);
+            }
+            else {
+                bodyPart.appendChild(childPart);
+            }
         }
     }
     return (bodyPart);
@@ -184,6 +197,7 @@ function generateTOC(toc) {
     }
 }
 
+//Selection du titre via le TOC
 function setSelectionTOC() {
     if (typeof document.activeElement.href == 'undefined')
         return;
