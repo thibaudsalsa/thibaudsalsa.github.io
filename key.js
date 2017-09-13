@@ -1,5 +1,5 @@
 document.onkeydown = applyKey;
-
+ 
 KEY_DOWN	= 40;
 KEY_UP		= 38;
 KEY_LEFT	= 37;
