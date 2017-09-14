@@ -56,16 +56,20 @@ REMAP_KEY_T	= 5019;
 
 var size = 0;
 var glob = 0;
-var glob_phrase = 1;
+var glob_phrase = 0;
 var g_pos = 1;
 var p = 0;
+var test = 0;
+var memory = 0;
+var memory_node = "";
 
 function stop_phrase()
 {
+    var childNode = document.body.childNodes;
     var	i = 0;
-    var txt = document.getElementsByClassName('phrase')[0].innerHTML;
+    var txt = childNode[memory].innerHTML;
     var new_txt = "";
-    while (txt[i] != '<')
+    while (txt[i] != '<' || txt[i + 1] != 's' || txt[i + 2] != 'p' || txt[i + 3] != 'a' || txt[i + 4] != 'n')
     {
 	new_txt += txt[i];
 	i = i + 1;
@@ -75,9 +79,10 @@ function stop_phrase()
 	i = i + 1;
     }
     i = i + 1;
-    while (txt[i] != '<')
+    while (txt[i] != '<' || txt[i + 1] != '/' || txt[i + 2] != 's' || txt[i + 3] != 'p' || txt[i + 4] != 'a' || txt[i + 5] != 'n')
     {
 	new_txt += txt[i];
+	console.log(txt[i]);
 	i = i + 1;
     }
     while (txt[i] != '>')
@@ -90,8 +95,9 @@ function stop_phrase()
 	new_txt += txt[i];
 	i = i + 1;
     }
-    document.getElementsByClassName('phrase')[0].innerHTML = new_txt;
+    childNode[memory].innerHTML = new_txt;
     p = 0;
+    
 }
 
 
@@ -135,7 +141,6 @@ function applyKey (_event_){
     back();
     if (intKeyCode == KEY_END)
     {
-	glob_phrase = 1;
 	var x = document.getElementsByClassName("selected");
 	size = size - 1;
 	for (var i = 0; i < x.length; i++)
@@ -162,7 +167,6 @@ function applyKey (_event_){
     }
         if (intKeyCode == KEY_BEGIN)
     {
-	glob_phrase = 1;
 	var x = document.getElementsByClassName("selected");
 	size = size + 1;
 	for (var i = 0; i < x.length; i++)
@@ -214,7 +218,7 @@ function applyKey (_event_){
 	
 	if ( intKeyCode == KEY_RIGHT)
 	{
-	    glob_phrase = 1;
+	    	glob_phrase = 0;
 	    var childNode = document.body.childNodes;
 	for (var i = 0; 'selected' != childNode[i].className; i++)
 	{
@@ -254,7 +258,7 @@ function applyKey (_event_){
 	    }
 	    if (g_pos === pos)
 	    {
-		speakPhrase("fin de l'element");
+		speakPhrase("fin de l'élément");
 	    }
 	    else
 	    {
@@ -269,7 +273,7 @@ function applyKey (_event_){
 	
     if (intKeyCode == KEY_LEFT )
 	{
-	    glob_phrase = 1;
+	    	glob_phrase = 0;
 	    var childNode = document.body.childNodes;
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
@@ -308,7 +312,7 @@ function applyKey (_event_){
 	    }
 	    if (g_pos === pos)
 	    {
-		speakPhrase("debut de l'element");
+		speakPhrase("debut de l'élément");
 	    }
 	    else
 	    {
@@ -322,9 +326,9 @@ function applyKey (_event_){
 	
     if ( intKeyCode == KEY_UP)
 	{
-	    glob_phrase = 1;
+	    	glob_phrase = 0;
 	var temp = 1;
-	var poulet = 0;
+	    var poulet = 0;
 	    var childNode = document.body.childNodes;
 	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
@@ -376,7 +380,7 @@ function applyKey (_event_){
 	    }
 	    if (g_pos === pos)
 	    {
-		speakPhrase("debut de l'element");
+		speakPhrase("debut de l'élément");
 	    }
 	    else
 	    {
@@ -390,7 +394,7 @@ function applyKey (_event_){
 	
     if ( intKeyCode == KEY_DOWN)
 	{
-	    glob_phrase = 1;
+	    	glob_phrase = 0;
 	var found = false
         var temp = 0;
 	var poulet;
@@ -437,7 +441,7 @@ function applyKey (_event_){
 	    }
 	    if (g_pos === pos)
 	    {
-		speakPhrase("fin de l'element");
+		speakPhrase("fin de l'élément");
 	    }
 	    else
 	    {
@@ -451,7 +455,7 @@ function applyKey (_event_){
 	
     if ( intKeyCode == KEY_L)
 	{
-	    glob_phrase = 1;
+	    	glob_phrase = 0;
 	var temp = 1;
 	var childNode = document.body.childNodes;
 	for (var i = 1; 'selected' != childNode[i].className; i++)
@@ -507,7 +511,7 @@ function applyKey (_event_){
 	    }
 	    if (g_pos === pos)
 	    {
-		speakPhrase("debut de l'element");
+		speakPhrase("debut de l'élément");
 	    }
 	    else
 	    {
@@ -519,7 +523,7 @@ function applyKey (_event_){
 
     if (intKeyCode == KEY_M)
 	{
-	    glob_phrase = 1;
+	    	glob_phrase = 0;
 	var found = false
         var temp = 0;
         var childNode = document.body.childNodes;
@@ -569,7 +573,7 @@ function applyKey (_event_){
 	    }
 	    if (g_pos === pos)
 	    {
-		speakPhrase("fin de l'element");
+		speakPhrase("fin de l'élément");
 	    }
 	    else
 	    {
@@ -621,11 +625,15 @@ function applyKey (_event_){
     {
 	p = 1;
 	var childNode = document.body.childNodes;
+	elem = document.getElementsByClassName('selected');
 	for (var i = 0; 'selected' != childNode[i].className; i++)
 	{
 	}
-	var tmp = phrase_spe(document.getElementsByClassName('selected'));
+	memory = i;
+	memory_node = childNode[i].innerHTML;
+	var tmp = childNode[memory].innerHTML;
 	var txt = "";
+	var cpt = 0;
 	while ('selected' === childNode[i].className)
 	{
 	    childNode[i].className = 'phrase';
@@ -633,65 +641,67 @@ function applyKey (_event_){
 	}
 	if (glob_phrase >= tmp.length)
 	{
-	    glob_phrase = 1;
+	    glob_phrase = 0;
 	}
-	if (glob_phrase === 1 && (tmp[glob_phrase] <= '9' && tmp[glob_phrase] >= '0'))
+	if (glob_phrase === 0 && (tmp[glob_phrase] <= '9' && tmp[glob_phrase] >= '0') && tmp[glob_phrase] === '.')
 	{
 	    var parse = glob_phrase;
-	    var parse2= 1;
+	    var parse2= 0;
 	    var new_txt = "";
-	    while (((tmp[glob_phrase-1] != '.' && tmp[glob_phrase-1] != '!' && tmp[glob_phrase-1] != '?') || tmp[glob_phrase] != ' ') && glob_phrase < tmp.length)
+	    while (tmp[glob_phrase] != ' ' && glob_phrase < tmp.length)
 	    {
 		txt += tmp[glob_phrase];
 		glob_phrase = glob_phrase + 1;
 	    }
+	    var txt2 = childNode[memory].innerHTML;
 	    while (parse2 < parse)
 	    {
-		new_txt += tmp[parse2];
+		new_txt += txt2[parse2];
 		parse2 = parse2 + 1;
 	    }
 	    new_txt += "<span id='phrase_selected'>"
 	    while (parse < glob_phrase)
 	    {
-		new_txt += tmp[parse];
+		new_txt += txt2[parse];
 		parse = parse + 1;
 	    }
 	    new_txt += "</span>"
-	    while (parse < tmp.length)
+	    while (parse < txt2.length)
 	    {
-		new_txt += tmp[parse];
+		new_txt += txt2[parse];
 		parse = parse + 1;
 	    }
 	}
 	else
 	{
 	    var parse = glob_phrase;
-	    var parse2= 1;
+	    var parse2= 0;
 	    var new_txt = "";
-	    while (tmp[glob_phrase-1] != '.' && tmp[glob_phrase-1] != '!' && tmp[glob_phrase-1] != '?' && glob_phrase < tmp.length)
+	    while (glob_phrase+1 < tmp.length && ((tmp[glob_phrase] != '.' && tmp[glob_phrase] != '!' && tmp[glob_phrase] != '?') || tmp[glob_phrase+1] != ' '))
 	    {
 		txt += tmp[glob_phrase];
 		glob_phrase = glob_phrase + 1;
 	    }
+	    var txt2 = childNode[memory].innerHTML;
 	    while (parse2 < parse)
 	    {
-		new_txt += tmp[parse2];
+		new_txt += txt2[parse2];
 		parse2 = parse2 + 1;
 	    }
 	    new_txt += "<span id='phrase_selected'>"
-	    while (parse < glob_phrase)
+	    while (parse <= glob_phrase)
 	    {
-		new_txt += tmp[parse];
+		new_txt += txt2[parse];
 		parse = parse + 1;
 	    }
 	    new_txt += "</span>"
-	    while (parse < tmp.length)
+	    while (parse < txt2.length)
 	    {
-		new_txt += tmp[parse];
+		new_txt += txt2[parse];
 		parse = parse + 1;
 	    }
 	}
-	document.getElementsByClassName('phrase')[0].innerHTML = new_txt;
+	childNode[memory].innerHTML = new_txt;
 	glob_phrase = glob_phrase + 1;
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
