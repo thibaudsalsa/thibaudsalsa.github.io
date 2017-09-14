@@ -113,7 +113,7 @@ function f4(bodyPart, myNode, newBody) {
         }
         //La node est un texte -> suppression des espaces inutiles (?), ajout
         else if (childNode[i].nodeType === 3) {
-            childPart = document.createTextNode(/*myTrim(*/childNode[i].nodeValue/*)*/);
+            childPart = document.createTextNode(/*myTrim(*/childNode[i].nodeValue);//));
             //console.log(bodyPart);
             if (bodyPart.nodeName === "BODY") {
                 bodyPart.appendChild(document.createElement("P")).appendChild(childPart);

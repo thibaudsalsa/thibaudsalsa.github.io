@@ -58,14 +58,67 @@ var size = 0;
 var glob = 0;
 var glob_phrase = 1;
 var g_pos = 1;
+var p = 0;
 
-function checkEventObj ( _event_ ){
-	// verifions si le navigateur est IE
-	if ( window.event )
-		return window.event;
-	// Si ce n'est pas IE
-	else
-		return _event_;
+function stop_phrase()
+{
+    var	i = 0;
+    var txt = document.getElementsByClassName('phrase')[0].innerHTML;
+    var new_txt = "";
+    while (txt[i] != '<')
+    {
+	new_txt += txt[i];
+	i = i + 1;
+    }
+    while (txt[i] != '>')
+    {
+	i = i + 1;
+    }
+    i = i + 1;
+    while (txt[i] != '<')
+    {
+	new_txt += txt[i];
+	i = i + 1;
+    }
+    while (txt[i] != '>')
+    {
+	i = i + 1;
+    }
+    i = i + 1;
+    while (i < txt.length)
+    {
+	new_txt += txt[i];
+	i = i + 1;
+    }
+    document.getElementsByClassName('phrase')[0].innerHTML = new_txt;
+    p = 0;
+}
+
+
+function checkEventObj ( _event_ )
+{
+    // verifions si le navigateur est IE
+    if ( window.event )
+	return window.event;
+    // Si ce n'est pas IE
+    else
+	return _event_;
+}
+
+function back()
+{
+    var ii=0;
+    var childNode = document.body.childNodes;
+    while ('phrase' != childNode[ii].className && ii < childNode.length-1)
+    {
+	ii = ii + 1;
+    }
+    while ('phrase' === childNode[ii].className && ii < childNode.length-1)
+    {
+	childNode[ii].className = 'selected';
+	ii = ii + 1;
+
+    }
 }
 
 function applyKey (_event_){
@@ -75,6 +128,11 @@ function applyKey (_event_){
     var intAltKey = winObj.altKey;
     var intCtrlKey = winObj.ctrlKey;
 
+    if (p === 1)
+    {
+	stop_phrase();
+    }
+    back();
     if (intKeyCode == KEY_END)
     {
 	glob_phrase = 1;
@@ -157,7 +215,7 @@ function applyKey (_event_){
 	if ( intKeyCode == KEY_RIGHT)
 	{
 	    glob_phrase = 1;
-	var childNode = document.body.childNodes;
+	    var childNode = document.body.childNodes;
 	for (var i = 0; 'selected' != childNode[i].className; i++)
 	{
 	}
@@ -212,7 +270,7 @@ function applyKey (_event_){
     if (intKeyCode == KEY_LEFT )
 	{
 	    glob_phrase = 1;
-	var childNode = document.body.childNodes;
+	    var childNode = document.body.childNodes;
         for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
@@ -267,7 +325,7 @@ function applyKey (_event_){
 	    glob_phrase = 1;
 	var temp = 1;
 	var poulet = 0;
-	var childNode = document.body.childNodes;
+	    var childNode = document.body.childNodes;
 	for (var i = 1; 'selected' != childNode[i].className; i++)
 	{
         }
@@ -336,8 +394,8 @@ function applyKey (_event_){
 	var found = false
         var temp = 0;
 	var poulet;
-        var childNode = document.body.childNodes;
-        for (var i = 0; 'selected' != childNode[i].className; i++)
+            var childNode = document.body.childNodes;
+	    for (var i = 0; 'selected' != childNode[i].className; i++)
         {
         }
 	temp = i;
@@ -561,30 +619,79 @@ function applyKey (_event_){
 
     if (intKeyCode == KEY_P)
     {
-	var tmp = phrase(document.getElementsByClassName('selected'));
+	p = 1;
+	var childNode = document.body.childNodes;
+	for (var i = 0; 'selected' != childNode[i].className; i++)
+	{
+	}
+	var tmp = phrase_spe(document.getElementsByClassName('selected'));
 	var txt = "";
+	while ('selected' === childNode[i].className)
+	{
+	    childNode[i].className = 'phrase';
+	    i = i + 1;
+	}
 	if (glob_phrase >= tmp.length)
 	{
 	    glob_phrase = 1;
 	}
 	if (glob_phrase === 1 && (tmp[glob_phrase] <= '9' && tmp[glob_phrase] >= '0'))
 	{
+	    var parse = glob_phrase;
+	    var parse2= 1;
+	    var new_txt = "";
 	    while (((tmp[glob_phrase-1] != '.' && tmp[glob_phrase-1] != '!' && tmp[glob_phrase-1] != '?') || tmp[glob_phrase] != ' ') && glob_phrase < tmp.length)
-	{
-	    console.log(tmp[glob_phrase]);
-	    txt += tmp[glob_phrase];
-	    glob_phrase = glob_phrase + 1;	    
-	}
+	    {
+		txt += tmp[glob_phrase];
+		glob_phrase = glob_phrase + 1;
+	    }
+	    while (parse2 < parse)
+	    {
+		new_txt += tmp[parse2];
+		parse2 = parse2 + 1;
+	    }
+	    new_txt += "<span id='phrase_selected'>"
+	    while (parse < glob_phrase)
+	    {
+		new_txt += tmp[parse];
+		parse = parse + 1;
+	    }
+	    new_txt += "</span>"
+	    while (parse < tmp.length)
+	    {
+		new_txt += tmp[parse];
+		parse = parse + 1;
+	    }
 	}
 	else
 	{
-	while (tmp[glob_phrase-1] != '.' && tmp[glob_phrase-1] != '!' && tmp[glob_phrase-1] != '?' && glob_phrase < tmp.length)
-	{
-	    console.log(tmp[glob_phrase]);
-	    txt += tmp[glob_phrase];
-	    glob_phrase = glob_phrase + 1;	    
+	    var parse = glob_phrase;
+	    var parse2= 1;
+	    var new_txt = "";
+	    while (tmp[glob_phrase-1] != '.' && tmp[glob_phrase-1] != '!' && tmp[glob_phrase-1] != '?' && glob_phrase < tmp.length)
+	    {
+		txt += tmp[glob_phrase];
+		glob_phrase = glob_phrase + 1;
+	    }
+	    while (parse2 < parse)
+	    {
+		new_txt += tmp[parse2];
+		parse2 = parse2 + 1;
+	    }
+	    new_txt += "<span id='phrase_selected'>"
+	    while (parse < glob_phrase)
+	    {
+		new_txt += tmp[parse];
+		parse = parse + 1;
+	    }
+	    new_txt += "</span>"
+	    while (parse < tmp.length)
+	    {
+		new_txt += tmp[parse];
+		parse = parse + 1;
+	    }
 	}
-	}
+	document.getElementsByClassName('phrase')[0].innerHTML = new_txt;
 	glob_phrase = glob_phrase + 1;
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
@@ -604,7 +711,6 @@ function applyKey (_event_){
 	{
 	    while ((tmp[glob_phrase-1] != '.' || tmp[glob_phrase] != ' ') && glob_phrase < tmp.length)
 	{
-	    console.log(tmp[glob_phrase]);
 	    txt += tmp[glob_phrase];
 	    glob_phrase = glob_phrase + 1;	    
 	}
@@ -614,7 +720,6 @@ function applyKey (_event_){
 	{
 	while (tmp[glob_phrase-1] != ','&& tmp[glob_phrase-1] != ';' && tmp[glob_phrase-1] != ' ' && glob_phrase < tmp.length)
 	{
-	    console.log(tmp[glob_phrase]);
 	    txt += tmp[glob_phrase];
 	    glob_phrase = glob_phrase + 1;	    
 	}
@@ -628,10 +733,16 @@ function applyKey (_event_){
 	
 }
 
+function phrase_spe(myText) {
+    var tts = "";
+    tts += ' ' + myText[0].innerText;
+    return (tts);
+}
+
+
 function phrase(myText) {
     var tts = "";
     var textLength = myText.length;
-
     for(var i = 0; i < textLength; i++) {
 	if (i !== 0) {
 	    tts += '.';
