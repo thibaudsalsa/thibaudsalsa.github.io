@@ -212,7 +212,7 @@ function setSelectionTOC() {
     }
     var myClick = document.activeElement.href;
     console.log(myClick);
-    var searchId = myClick.slice(myClick.search(/#section1/gi) + 5, myClick.length);
+    var searchId = myClick.slice(myClick.search(/#section1/gi), myClick.length);
     console.log(searchId);
     var mySelect = document.getElementById(searchId);
     console.log(mySelect);
