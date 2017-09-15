@@ -627,7 +627,6 @@ function applyKey (_event_){
 	for (var i = 0; 'selected' != childNode[i].className; i++)
 	{
 	}
-	console.log(childNode[i].nodeName);
 	elem = document.getElementsByClassName('selected');
 	memory = i;
 	memory_node = childNode[i].innerHTML;
@@ -643,6 +642,7 @@ function applyKey (_event_){
 	{
 	    glob_phrase = 0;
 	}
+	// LECTURE DE LA NUMEROTATION DES TITRES
 	if (glob_phrase === 0 && (tmp[glob_phrase] <= '9' && tmp[glob_phrase] >= '0') && tmp[glob_phrase] === '.')
 	{
 	    var parse = glob_phrase;
@@ -672,6 +672,37 @@ function applyKey (_event_){
 		parse = parse + 1;
 	    }
 	}
+	// SI ON EST DANS UNE LISTE
+	else if (childNode[memory].nodeName === "OL")
+	{
+	    var parse = glob_phrase;
+	    var parse2= 0;
+	    var new_txt = "";
+	    while (glob_phrase+1 < tmp.length && ((tmp[glob_phrase] != '.' && tmp[glob_phrase] != '!' && tmp[glob_phrase] != '?') || tmp[glob_phrase+1] != ' '))
+	    {
+		txt += tmp[glob_phrase];
+		glob_phrase = glob_phrase + 1;
+	    }
+	    var txt2 = childNode[memory].innerHTML;
+	    while (parse2 < parse)
+	    {
+		new_txt += txt2[parse2];
+		parse2 = parse2 + 1;
+	    }
+	    new_txt += "<span id='phrase_selected'>"
+	    while (parse <= glob_phrase)
+	    {
+		new_txt += txt2[parse];
+		parse = parse + 1;
+	    }
+	    new_txt += "</span>"
+	    while (parse < txt2.length)
+	    {
+		new_txt += txt2[parse];
+		parse = parse + 1;
+	    }
+	}
+	//SELECTION DU RESTE
 	else
 	{
 	    var parse = glob_phrase;
@@ -701,6 +732,7 @@ function applyKey (_event_){
 		parse = parse + 1;
 	    }
 	}
+	//LECTURE DE LA PHRASE ET MODIFICATION DU TEXT POUR METTRE LES BALISES SPAN
 	childNode[memory].innerHTML = new_txt;
 	glob_phrase = glob_phrase + 1;
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;

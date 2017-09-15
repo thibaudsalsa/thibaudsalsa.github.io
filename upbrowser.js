@@ -206,6 +206,8 @@ function setSelectionTOC() {
     var mySelect = document.getElementById(searchId);
     var childNode = document.body.childNodes;
 
+    console.log(searchId);
+    console.log(mySelect);
     for(var i = 0; childNode[i].className != 'selected' && i < childNode.length; i++);
     if (childNode[i].id === 'selected') {
         childNode[i].id = '';
