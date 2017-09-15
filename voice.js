@@ -1,5 +1,6 @@
 var mySynth = window.speechSynthesis;
 var myVoices = mySynth.getVoices();
+console.log(myVoices);
 var currentVoice;
 var nav = 0;
 for(var i = 0; i < myVoices.length; i++) {
