@@ -202,19 +202,22 @@ function generateTOC(toc) {
 
 //Selection du titre via le TOC
 function setSelectionTOC() {
+    console.log(document.getElementsByTagName("a"));
+    console.log(document.activeElement);
     if (typeof document.activeElement.href == 'undefined') {
         return;
     }
     if (document.activeElement.hostname != document.location.hostname) {
         alert("PWET");
     }
-    console.log(document.getElementsByTagName("a"));
-    console.log(document.activeElement);
-    console.log(document.location.hostname);
     var myClick = document.activeElement.href;
+    console.log(myClick);
     var searchId = myClick.slice(myClick.search(/html#section1/gi) + 5, myClick.length);
+    console.log(searchId);
     var mySelect = document.getElementById(searchId);
+    console.log(mySelect);
     var childNode = document.body.childNodes;
+    console.log(childNode);
 
     for(var i = 1; childNode[i].className != 'selected' && i < childNode.length; i++);
     if (childNode[i].id === 'selected') {
