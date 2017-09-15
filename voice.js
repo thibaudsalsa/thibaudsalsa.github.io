@@ -1,11 +1,5 @@
 var mySynth = window.speechSynthesis;
 var myVoices = mySynth.getVoices();
-
-while (myVoices.length === 0) {
-    for(let i = 0; i <  20000; i++);
-    myVoices = mySynth.getVoices();
-}
-
 var currentVoice;
 var nav = 0;
 for(var i = 0; i < myVoices.length; i++) {
