@@ -675,6 +675,14 @@ function applyKey (_event_){
 	// SI ON EST DANS UNE LISTE
 	else if (childNode[memory].nodeName === "OL")
 	{
+	    while (tmp[glob_phrase] === ' ' || tmp[glob_phrase] === '\n')
+		glob_phrase++;
+	    if (tmp[glob_phrase] === '<' && tmp[glob_phrase+1] === '/' && tmp[glob_phrase+2] === 'l' && tmp[glob_phrase+3] === 'i'  && tmp[glob_phrase+4] === '>')
+	    {
+		glob_phrase = glob_phrase + 5;
+	    }
+	    while (tmp[glob_phrase] === ' ' || tmp[glob_phrase] === '\n')
+		glob_phrase++;
 	    if (tmp[glob_phrase] === '<' && tmp[glob_phrase+1] === 'l' && tmp[glob_phrase+2] === 'i' && tmp[glob_phrase+3] === '>')
 	    {
 		glob_phrase = glob_phrase + 4;
