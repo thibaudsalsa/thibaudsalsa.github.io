@@ -82,7 +82,6 @@ function stop_phrase()
     while (txt[i] != '<' || txt[i + 1] != '/' || txt[i + 2] != 's' || txt[i + 3] != 'p' || txt[i + 4] != 'a' || txt[i + 5] != 'n')
     {
 	new_txt += txt[i];
-	console.log(txt[i]);
 	i = i + 1;
     }
     while (txt[i] != '>')
@@ -625,10 +624,11 @@ function applyKey (_event_){
     {
 	p = 1;
 	var childNode = document.body.childNodes;
-	elem = document.getElementsByClassName('selected');
 	for (var i = 0; 'selected' != childNode[i].className; i++)
 	{
 	}
+	console.log(childNode[i].nodeName);
+	elem = document.getElementsByClassName('selected');
 	memory = i;
 	memory_node = childNode[i].innerHTML;
 	var tmp = childNode[memory].innerHTML;
@@ -639,7 +639,7 @@ function applyKey (_event_){
 	    childNode[i].className = 'phrase';
 	    i = i + 1;
 	}
-	if (glob_phrase >= tmp.length)
+	if (glob_phrase+1 >= tmp.length)
 	{
 	    glob_phrase = 0;
 	}
