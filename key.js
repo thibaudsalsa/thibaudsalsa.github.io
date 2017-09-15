@@ -650,12 +650,14 @@ function applyKey (_event_){
 	    var new_txt = "";
 	    while (tmp[glob_phrase] != ' ' && glob_phrase < tmp.length)
 	    {
-		txt += tmp[glob_phrase];
+		//txt += tmp[glob_phrase];
 		glob_phrase = glob_phrase + 1;
 	    }
 	    var txt2 = childNode[memory].innerHTML;
+	    txt = "";
 	    while (parse2 < parse)
 	    {
+		txt += txt2[parse2];
 		new_txt += txt2[parse2];
 		parse2 = parse2 + 1;
 	    }
@@ -687,6 +689,22 @@ function applyKey (_event_){
 	    {
 		glob_phrase = glob_phrase + 4;
 	    }
+	    if (glob_phrase >= tmp.length-1)
+		glob_phrase = 0;
+
+	    while ((tmp[glob_phrase] === ' ' || tmp[glob_phrase] === '\n') && glob_phrase < tmp.length-1)
+		glob_phrase++;
+	    if (tmp[glob_phrase] === '<' && tmp[glob_phrase+1] === '/' && tmp[glob_phrase+2] === 'l' && tmp[glob_phrase+3] === 'i'  && tmp[glob_phrase+4] === '>')
+	    {
+		glob_phrase = glob_phrase + 5;
+	    }
+	    while ((tmp[glob_phrase] === ' ' || tmp[glob_phrase] === '\n') && glob_phrase < tmp.length-1)
+		glob_phrase++;
+	    if (tmp[glob_phrase] === '<' && tmp[glob_phrase+1] === 'l' && tmp[glob_phrase+2] === 'i' && tmp[glob_phrase+3] === '>')
+	    {
+		glob_phrase = glob_phrase + 4;
+	    }
+	    
 	    var parse = glob_phrase;
 	    var parse2= 0;
 	    var new_txt = "";
@@ -751,6 +769,7 @@ function applyKey (_event_){
 	glob_phrase = glob_phrase + 1;
 	winObj.keyCode = intKeyCode = REMAP_KEY_T;
 	winObj.returnValue = false;
+	console.log(txt);
 	speakPhrase(txt);
 	return false;
     }
