@@ -1,4 +1,5 @@
 var mySynth = window.speechSynthesis;
+console.log(mySynth);
 var myVoices = mySynth.getVoices();
 console.log(myVoices);
 var currentVoice;
