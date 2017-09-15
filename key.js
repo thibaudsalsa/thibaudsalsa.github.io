@@ -722,7 +722,7 @@ function applyKey (_event_){
 	    var new_txt = "";
 	    while (glob_phrase+1 < tmp.length && ((tmp[glob_phrase] != '.' && tmp[glob_phrase] != '!' && tmp[glob_phrase] != '?') || tmp[glob_phrase+1] != ' '))
 	    {
-		txt += tmp[glob_phrase];
+		//txt += tmp[glob_phrase];
 		glob_phrase = glob_phrase + 1;
 	    }
 	    var txt2 = childNode[memory].innerHTML;
@@ -731,9 +731,11 @@ function applyKey (_event_){
 		new_txt += txt2[parse2];
 		parse2 = parse2 + 1;
 	    }
+	    txt = "";
 	    new_txt += "<span id='phrase_selected'>"
 	    while (parse <= glob_phrase)
 	    {
+		txt += txt2[parse];
 		new_txt += txt2[parse];
 		parse = parse + 1;
 	    }
