@@ -202,8 +202,6 @@ function generateTOC(toc) {
 
 //Selection du titre via le TOC
 function setSelectionTOC() {
-    console.log(document.getElementsByTagName("a"));
-    console.log(document.activeElement);
     if (typeof document.activeElement.href == 'undefined') {
         return;
     }
@@ -211,13 +209,9 @@ function setSelectionTOC() {
         return;
     }
     var myClick = document.activeElement.href;
-    console.log(myClick);
     var searchId = myClick.slice(myClick.lastIndexOf("#section1") + 1, myClick.length);
-    console.log(searchId);
     var mySelect = document.getElementById(searchId);
-    console.log(mySelect);
     var childNode = document.body.childNodes;
-    console.log(childNode);
 
     for(var i = 1; childNode[i].className != 'selected' && i < childNode.length; i++);
     if (childNode[i].id === 'selected') {
