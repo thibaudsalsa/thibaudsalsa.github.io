@@ -75,7 +75,7 @@ function f3(myNode, newBody, parentBody) {
         // Rajout d'attributs pour <a>
         if (tempNode.nodeName.localeCompare("A") === 0 && tempNode.hasAttribute("href")){
             bodyPart.setAttribute("href", tempNode.getAttribute("href"));
-//            bodyPart.setAttribute("target", "_blank");
+            bodyPart.setAttribute("target", "_blank");
         }
         // Rajout d'attributs pour <img>
         else if (tempNode.nodeName.localeCompare("IMG") === 0){
