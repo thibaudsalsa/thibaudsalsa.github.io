@@ -208,7 +208,7 @@ function setSelectionTOC() {
         return;
     }
     if (document.activeElement.hostname != document.location.hostname) {
-        alert("PWET");
+        return;
     }
     var myClick = document.activeElement.href;
     console.log(myClick);
