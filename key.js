@@ -344,19 +344,19 @@ function applyKey (_event_){
 	for(let tmp2=1; tmp2<childNode.length; tmp2++)
 	{
 	    if (childNode[i].className === 'selected')
-		childNode[i].className = 'nop';
+		childNode[i].className = '';
 	}
         for (;i < childNode.length; i--)
         {
             if (childNode[i].nodeName[0] === 'H')
             {
 		document.getElementById(childNode[i].id).scrollIntoView();
-		childNode[temp].className = 'nop';
+		childNode[temp].className = '';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
 		{
 		//for (;childNode[temp].nodeName[0] !== 'H'; temp++)
-		    childNode[temp].className = 'nop';
+		    childNode[temp].className = '';
 		    temp = temp + 1;
 		}
                 childNode[i].className = 'selected';
@@ -412,12 +412,12 @@ function applyKey (_event_){
             if (childNode[i].nodeName[0] === 'H')
             {
 		document.getElementById(childNode[i].id).scrollIntoView();
-		childNode[temp].className = 'nop';
+		childNode[temp].className = '';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
 		{
 		//for (;childNode[temp].nodeName[0] !== 'H'; temp++)
-		    childNode[temp].className = 'nop';
+		    childNode[temp].className = '';
 		    temp = temp + 1;
 		}
                 childNode[i].className = 'selected';
@@ -475,18 +475,18 @@ function applyKey (_event_){
 	for(let tmp2=1; tmp2<childNode.length; tmp2++)
 	{
 	    if (childNode[i].className === 'selected')
-		childNode[i].className = 'nop';
+		childNode[i].className = '';
 	}
         for (;i < childNode.length; i--)
             {
             if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] < current_title)
             {
-		childNode[temp].className = 'nop';
+		childNode[temp].className = '';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
 		{
 		//for (;childNode[temp].nodeName[0] !== 'H'; temp++)
-		    childNode[temp].className = 'nop';
+		    childNode[temp].className = '';
 		    temp = temp + 1;
 		}
                 childNode[i].className = 'selected';
@@ -540,12 +540,12 @@ function applyKey (_event_){
         {
             if (childNode[i].nodeName[0] === 'H' && childNode[i].nodeName[1] > current_title)
             {
-		childNode[temp].className = 'nop';
+		childNode[temp].className = '';
 		temp = temp + 1;
 		while (temp < childNode.length && childNode[temp].nodeName[0] !== 'H')
 		{
 		//for (;childNode[temp].nodeName[0] !== 'H'; temp++)
-		    childNode[temp].className = 'nop';
+		    childNode[temp].className = '';
 		    temp = temp + 1;
 		}
                 childNode[i].className = 'selected';
@@ -675,6 +675,10 @@ function applyKey (_event_){
 	// SI ON EST DANS UNE LISTE
 	else if (childNode[memory].nodeName === "OL")
 	{
+	    if (tmp[glob_phrase] === '<' && tmp[glob_phrase+1] === 'l' && tmp[glob_phrase+2] === 'i' && tmp[glob_phrase+3] === '>')
+	    {
+		glob_phrase = glob_phrase + 4;
+	    }
 	    var parse = glob_phrase;
 	    var parse2= 0;
 	    var new_txt = "";
