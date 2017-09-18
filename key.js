@@ -633,7 +633,7 @@ function applyKey (_event_){
 	var tmp = childNode[memory].innerHTML;
 	var txt = "";
 	var cpt = 0;
-	while ('selected' === childNode[i].className)
+	while ('selected' === childNode[i].className && i < childNode.length)
 	{
 	    childNode[i].className = 'phrase';
 	    i = i + 1;
