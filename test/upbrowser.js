@@ -46,7 +46,6 @@ function f1() {
         document.body.childNodes[i].className = 'nope';
     }
     document.body.insertBefore(myToc, document.body.firstElementChild);
-    parse_phrase();
 }
 
 //Fonction de suppression des espaces inutiles
@@ -136,7 +135,7 @@ function f5() {
     var my_css = document.createElement("LINK");
     my_css.setAttribute("rel", "stylesheet");
     my_css.setAttribute("type", "text/css");
-    my_css.setAttribute("href", "index.css");
+    my_css.setAttribute("href", "selection/index.css");
     document.head.appendChild(my_css);
 
     var my_script = document.createElement("SCRIPT");
@@ -224,7 +223,7 @@ function setSelectionTOC() {
     mySelect.className = 'selected';
 }
 
-
+/*
 function parse_phrase()
 {
     var	i = 1;
@@ -236,52 +235,66 @@ function parse_phrase()
     while (i < childNode.length)
     {
 	tmp = childNode[i].innerHTML;
-	if (childNode[i].nodeName === "OL")
+	//SI ON EST DANS UNE LISTE
+	if (childNode[i].TagName === "OL")
 	{
+	    txt = "<span id="+num+">";
+	    num++;
+	    //ON EPURE LES \N ET LES ESPACES 
+	    while (tmp[k] === '\n' || tmp[k] === ' ')
+		    k++;
 	    while (k < tmp.length)
 	    {
+		// ON EVITE LES BALISES LI
 		if (tmp[k] === '<' && tmp[k+1] === 'l' && tmp[k+2] === 'i' && tmp[k+3] === '>')
-		{
-		    txt += "<li><span id="+num+">";
-		    num++;
 		    k = k + 4;
-		}
-		else if (tmp[k] === '<' && tmp[k+1] === 'l' && tmp[k+2] === 'l' && tmp[k+3] === 'i' && tmp[k+4] === '>')
+		// ON EVITE LES BALISE /LI
+		if (tmp[k] === '<' && tmp[k+1] === '/' && tmp[k+2] === 'l' && tmp[k+3] === 'i' && tmp[k+4] === '>')
 		{
-		    txt += "</span></li>"
 		    k = k + 5;
 		}
-		else
-		{
-		    txt += tmp[k];
+		//ON EPURE LES \N ET LES ESPACES
+		while (tmp[k] === '\n' || tmp[k] === ' ')
 		    k++;
+		txt += tmp[k];
+		if (tmp[k] === '.' || tmp[k] === '?' || tmp[k] === '.')
+		{
+		    txt += "</span><span id="+num+">"
+		    num++;
 		}
+		k = k + 1;
 	    }
 	}
-	else
+	else //SI C EST AUTRE CHOSE QU UNE LISTE
 	{
 	    txt = "<span id="+num+">";
 	    num++;
 	    while (k < tmp.length)
 	    {
 		txt += tmp[k];
-		if ((tmp[k] === '.' || tmp[k] === '?' || tmp[k] === '.') && tmp[k+1] === ' ')
+		// SI ON TROUVE UNE IMAGE BASE64
+		if (tmp[k] === '<' && tmp[k+1] === 'i' && tmp[k+2] === 'm' && tmp[k+3] === 'g')
 		{
-		    txt += "</span>";
-		    if (k + 2 < tmp.length)
+		    while (tmp[k] != '>')
 		    {
-			txt += "<span id="+num+">";	
-			num++;
+			txt += tmp[k];
+			k++;
 		    }
+		    txt += "</span><span id="+num+">"
+		    num++;
+		}
+		//SI ON TROUVE LA FIN D UNE PHRASE
+		if (tmp[k] === '.' || tmp[k] === '?' || tmp[k] === '.')
+		{
+		    txt += "</span><span id="+num+">"
+		    num++;
 		}
 		k = k + 1;
 	    }
 
 	}
 	childNode[i].innerHTML = txt;
-	txt = "";
 	k = 0;
 	i = i + 1;
     }
-    //document.getElementById("0").className = "selected";
-}
+}*/
