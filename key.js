@@ -105,7 +105,6 @@ function applyKey (_event_){
 
 
 
-    
     if (intKeyCode == KEY_END)
     {
 	var x = document.getElementsByClassName("selected");
@@ -164,10 +163,6 @@ function applyKey (_event_){
     }
 
 
-
-
-
-    
     else
     {
 	if (nav_block === 1)
@@ -194,19 +189,14 @@ function applyKey (_event_){
 	    }
 	}
 
-	
-
-	
+		
 	if (nav_block === 1)
 	{
-
-
-
-
 
 	    
 	    if ( intKeyCode == KEY_RIGHT)
 	    {
+		document.getElementById(phrase).className = "";
 		test = 1;
 	    	glob_phrase = 0;
 		var childNode = document.body.childNodes;
@@ -245,12 +235,9 @@ function applyKey (_event_){
     }
 
 
-
-
-	    
-	
     if (intKeyCode == KEY_LEFT )
 	    {
+		document.getElementById(phrase).className = "";
 		test = 1;
 		glob_phrase = 0;
 		var childNode = document.body.childNodes;
@@ -287,14 +274,10 @@ function applyKey (_event_){
 	    }
 	}
 
-
-
-
-
-	
 	
     if ( intKeyCode == KEY_UP)
 	{
+	    document.getElementById(phrase).className = "";
 	    test = 1;
 	    glob_phrase = 0;
 	    var temp = 1;
@@ -335,15 +318,10 @@ function applyKey (_event_){
 	    return false;
 	}
 
-
-
-
-
-
-	
 	
     if ( intKeyCode == KEY_DOWN)
 	{
+	    document.getElementById(phrase).className = "";
 	    test = 1;
 	    glob_phrase = 0;
 	    var found = false
@@ -379,15 +357,10 @@ function applyKey (_event_){
 	    return false;
     }
 
-
-
-
-
-
-	
 	
     if ( intKeyCode == KEY_L)
 	{
+	    document.getElementById(phrase).className = "";
 	    test = 1;
 	    glob_phrase = 0;
 	    var temp = 1;
@@ -444,21 +417,10 @@ function applyKey (_event_){
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 	
     if (intKeyCode == KEY_M)
 	{
+	    document.getElementById(phrase).className = "";
 	    test = 1;
 	    glob_phrase = 0;
 	    var found = false
@@ -507,24 +469,6 @@ function applyKey (_event_){
 	}
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     if (intKeyCode == KEY_ENTER)
     {
@@ -555,20 +499,6 @@ function applyKey (_event_){
 	return false;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     if (intKeyCode == KEY_SPACE)
     {
@@ -578,21 +508,7 @@ function applyKey (_event_){
 	return false;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     
-
     if (intKeyCode == KEY_P)
     {
 	if (nav_block === 1)
@@ -601,15 +517,6 @@ function applyKey (_event_){
 	    nav_block = 1;
     }
 
-
-
-
-
-
-
-
-
-    
 
         if (intKeyCode == KEY_W)
     {
@@ -647,17 +554,6 @@ function applyKey (_event_){
     if (nav_block === 0)
     {
 
-
-
-
-
-
-
-
-
-
-
-
 	
 	if ( intKeyCode == KEY_RIGHT)
 	{
@@ -678,12 +574,7 @@ function applyKey (_event_){
 	}
 
 
-
-
-
-
-	
-    if (intKeyCode == KEY_LEFT )
+	if (intKeyCode == KEY_LEFT )
 	{
 	    if (phrase > 0) 
 	    {
@@ -703,15 +594,6 @@ function applyKey (_event_){
     }
     
 }
-
-
-
-
-
-
-
-
-
 
 
 function phrase_spe(myText) {
