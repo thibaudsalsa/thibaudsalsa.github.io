@@ -67,6 +67,9 @@ var test = 1;
 var first = 0;
 var phrase = 0;
 var title = 1;
+var mem_scroll = window.innerHeight;
+var mem_scroll2 = 0;
+var sup_TOC = document.getElementsByClassName('selected')[0].offsetTop;
 
 
 function checkEventObj ( _event_ )
@@ -101,9 +104,6 @@ function applyKey (_event_){
     var intCtrlKey = winObj.ctrlKey;
 
     back();
-
-
-
 
     if (intKeyCode == KEY_END)
     {
@@ -221,7 +221,13 @@ function applyKey (_event_){
 		winObj.returnValue = false;
 		let view = document.getElementById('selected');
 		if (view != null)
-		    view.scrollIntoView();
+		{
+		    if (document.getElementsByClassName('selected')[0].offsetTop+sup_TOC >= mem_scroll)
+		    {
+			view.scrollIntoView();
+			mem_scroll = mem_scroll + document.getElementsByClassName('selected')[0].offsetTop+sup_TOC;
+		    }
+		}
 		speakElement(document.getElementsByClassName('selected'));
 		let pos = 0;
 		for (; 'selected' != childNode[pos].className; pos++);
@@ -298,7 +304,15 @@ function applyKey (_event_){
             {
 		if (childNode[i].nodeName[0] === 'H')
 		{
-		    document.getElementById(childNode[i].id).scrollIntoView();
+		    if (childNode[i].offsetTop+sup_TOC <= mem_scroll2)
+		    {
+			var scroll_top = i;
+			mem_scroll = mem_scroll - (mem_scroll - childNode[i].offsetTop+sup_TOC);
+			mem_scroll2 = mem_scroll2 - (mem_scroll2 - childNode[i].offsetTop+sup_TOC);
+			while (childNode[scroll_top].offsetTop+sup_TOC > mem_scroll2 && scroll_top > 0)
+			    scroll_top--;
+			childNode[scroll_top].scrollIntoView();
+		    }
 		    childNode[temp].className = '';
 		    temp = temp + 1;
                     childNode[i].className = 'selected';
@@ -337,7 +351,12 @@ function applyKey (_event_){
 	    {
 		if (childNode[i].nodeName[0] === 'H')
 		{
-		    document.getElementById(childNode[i].id).scrollIntoView();
+		    if (document.getElementsByClassName('selected')[0].offsetTop+sup_TOC >= mem_scroll)
+		    {
+			document.getElementById(childNode[i].id).scrollIntoView();
+			mem_scroll = mem_scroll + (document.getElementsByClassName('selected')[0].offsetTop+sup_TOC);
+			mem_scroll2 = mem_scroll2 + (document.getElementsByClassName('selected')[0].offsetTop+sup_TOC);
+		    }
 		    childNode[temp].className = '';
 		    temp = temp + 1;
 		    childNode[i].className = 'selected';
