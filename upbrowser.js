@@ -1,7 +1,3 @@
-/**
- * Created by Robin Chatain on 7/13/17.
- */
-
 //Eléments gérés par le script
 var checkElem = ['BODY', 'P', 'H1', 'H2', 'H3', 'H4', 'H5', 'OL', 'UL','LI', 'A', 'IMG'];
 
