@@ -1,3 +1,9 @@
+__APPLICATION DASHBOARD__
+
+Le but de ce projet est de vous familiariser avec la plateforme logicielle que vous avez choisie (Java, .NET, node.js) à travers la réalisation d’un dashboard.
+Pour ce faire, vous devez implémenter une application web dont le fonctionnement ressemble à celui de Netvibes
+
+__Credits :__ *thibaud Salsa Robin chatain*
 
 __SERVICE__
 
