@@ -1,7 +1,7 @@
 
-**__SERVICE__**
+__SERVICE__
 
-**__GOOGLE :__ **
+__GOOGLE :__ 
 
 Ce service propose des widgets liés à l’utilisation des API google cloud. 
 
@@ -9,7 +9,7 @@ __Widget :__
 
 *Google Map Road Trip information* : Ce widget Vous donne la distance et le temps de trajet en voiture entre deux endroits que vous avez sélectionné. Il se rafraichie toutes les 60 secondes.  
  
-**__CURRENCY :__**
+__CURRENCY :__
 
 Ce service propose des widgets liés à l’utilisation de monnaies en utilisant exchange rates api. 
 
@@ -17,7 +17,7 @@ __Widget :__
 
 *Currency conversion* : Ce widget vous indique la valeur de l’euro par rapport à d’autre monnaies de votre choix, il se rafraichit toutes les 3 secondes. 
  
-**__WEATHER :__ **
+__WEATHER :__ 
 
 Ce service propose différents widgets liés à la météo en utilisant l’api open weather map 
 
@@ -27,7 +27,7 @@ __Widget :__
 
 *Wind* : Ce widget donne des informations sur le ciel, la vitesse et la direction du vent dans une ville de votre choix, il se rafraichit toutes les 60 secondes.
 
-**__WORLD :__**
+__WORLD :__
 
 Ce service vous donne des informations sur le monde, de l’heure de chaque pays, jusqu’à la tendance des films du moment. 
 
